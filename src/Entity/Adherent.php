@@ -32,6 +32,11 @@ class Adherent
      */
     private $date_naissance;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Famille::class, inversedBy="adherents")
+     */
+    private $famille;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Adherent
     public function setDateNaissance(string $date_naissance): self
     {
         $this->date_naissance = $date_naissance;
+
+        return $this;
+    }
+
+    public function getFamille(): ?Famille
+    {
+        return $this->famille;
+    }
+
+    public function setFamille(?Famille $famille): self
+    {
+        $this->famille = $famille;
 
         return $this;
     }
