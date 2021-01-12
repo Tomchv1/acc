@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PaiementRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Paiement
      * @ORM\Column(type="integer", nullable=true)
      */
     private $mensualite;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Adhesion::class, inversedBy="paiements")
+     */
+    private $adhesion;
+
+    public function __construct()
+    {
+        $this->adhesion = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,34 @@ class Paiement
     public function setMensualite(?int $mensualite): self
     {
         $this->mensualite = $mensualite;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Adhesion[]
+     */
+
+    /**
+     * @return Collection|Adhesion[]
+     */
+    public function getAdhesion(): Collection
+    {
+        return $this->adhesion;
+    }
+
+    public function addAdhesion(Adhesion $adhesion): self
+    {
+        if (!$this->adhesion->contains($adhesion)) {
+            $this->adhesion[] = $adhesion;
+        }
+
+        return $this;
+    }
+
+    public function removeAdhesion(Adhesion $adhesion): self
+    {
+        $this->adhesion->removeElement($adhesion);
 
         return $this;
     }

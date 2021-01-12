@@ -32,6 +32,11 @@ class Horaire
      */
     private $date_fin;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Activites::class, inversedBy="horaires")
+     */
+    private $activites;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Horaire
     public function setDateFin(?string $date_fin): self
     {
         $this->date_fin = $date_fin;
+
+        return $this;
+    }
+
+    public function getActivites(): ?Activites
+    {
+        return $this->activites;
+    }
+
+    public function setActivites(?Activites $activites): self
+    {
+        $this->activites = $activites;
 
         return $this;
     }

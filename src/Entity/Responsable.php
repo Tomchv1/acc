@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ResponsableRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +63,16 @@ class Responsable
      * @ORM\Column(type="string", length=5, nullable=true)
      */
     private $cp;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Adherent::class, inversedBy="responsables")
+     */
+    private $adherent;
+
+    public function __construct()
+    {
+        $this->adherent = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -171,6 +183,30 @@ class Responsable
     public function setCp(?string $cp): self
     {
         $this->cp = $cp;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Adherent[]
+     */
+    public function getAdherent(): Collection
+    {
+        return $this->adherent;
+    }
+
+    public function addAdherent(Adherent $adherent): self
+    {
+        if (!$this->adherent->contains($adherent)) {
+            $this->adherent[] = $adherent;
+        }
+
+        return $this;
+    }
+
+    public function removeAdherent(Adherent $adherent): self
+    {
+        $this->adherent->removeElement($adherent);
 
         return $this;
     }

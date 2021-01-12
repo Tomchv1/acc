@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ActivitesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -41,6 +43,22 @@ class Activites
      * @ORM\Column(type="float", nullable=true)
      */
     private $tarif_hors_cours;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Adherent::class, inversedBy="activites")
+     */
+    private $adherent;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Horaire::class, mappedBy="activites")
+     */
+    private $horaires;
+
+    public function __construct()
+    {
+        $this->adherent = new ArrayCollection();
+        $this->horaires = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -103,6 +121,60 @@ class Activites
     public function setTarifHorsCours(?float $tarif_hors_cours): self
     {
         $this->tarif_hors_cours = $tarif_hors_cours;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Adherent[]
+     */
+    public function getAdherent(): Collection
+    {
+        return $this->adherent;
+    }
+
+    public function addAdherent(Adherent $adherent): self
+    {
+        if (!$this->adherent->contains($adherent)) {
+            $this->adherent[] = $adherent;
+        }
+
+        return $this;
+    }
+
+    public function removeAdherent(Adherent $adherent): self
+    {
+        $this->adherent->removeElement($adherent);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Horaire[]
+     */
+    public function getHoraires(): Collection
+    {
+        return $this->horaires;
+    }
+
+    public function addHoraire(Horaire $horaire): self
+    {
+        if (!$this->horaires->contains($horaire)) {
+            $this->horaires[] = $horaire;
+            $horaire->setActivites($this);
+        }
+
+        return $this;
+    }
+
+    public function removeHoraire(Horaire $horaire): self
+    {
+        if ($this->horaires->removeElement($horaire)) {
+            // set the owning side to null (unless already changed)
+            if ($horaire->getActivites() === $this) {
+                $horaire->setActivites(null);
+            }
+        }
 
         return $this;
     }

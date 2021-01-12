@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AdhesionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,21 @@ class Adhesion
      * @ORM\Column(type="string", length=60, nullable=true)
      */
     private $banque;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Adherent::class, inversedBy="adhesionss")
+     */
+    private $adherent;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Paiement::class, mappedBy="adhesion")
+     */
+    private $paiements;
+
+    public function __construct()
+    {
+        $this->paiements = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +103,45 @@ class Adhesion
     public function setBanque(?string $banque): self
     {
         $this->banque = $banque;
+
+        return $this;
+    }
+
+    public function getAdherent(): ?Adherent
+    {
+        return $this->adherent;
+    }
+
+    public function setAdherent(?Adherent $adherent): self
+    {
+        $this->adherent = $adherent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Paiement[]
+     */
+    public function getPaiements(): Collection
+    {
+        return $this->paiements;
+    }
+
+    public function addPaiement(Paiement $paiement): self
+    {
+        if (!$this->paiements->contains($paiement)) {
+            $this->paiements[] = $paiement;
+            $paiement->addAdhesion($this);
+        }
+
+        return $this;
+    }
+
+    public function removePaiement(Paiement $paiement): self
+    {
+        if ($this->paiements->removeElement($paiement)) {
+            $paiement->removeAdhesion($this);
+        }
 
         return $this;
     }
