@@ -4,3 +4,7 @@
 route_accueil:
     path: /accueil
     controller: App\Controller\AdherentController::index
+
+liste-adherent:
+    path: /liste-adherent
+    controller: App\Controller\AdherentController::listerAdherent

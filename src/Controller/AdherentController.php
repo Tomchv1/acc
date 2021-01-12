@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Adherent;
 
 class AdherentController extends AbstractController
 {
@@ -17,4 +18,15 @@ class AdherentController extends AbstractController
             'controller_name' => 'AdherentController',
         ]);
     }
+
+    public function listerAdherent()
+    {
+        $adherents = $this->getDoctrine()
+        ->getRepository(Adherent::class)
+        ->findAll();
+         return $this->render('adherent/listerAdherent.html.twig', [
+            'pAdherents' => $adherents,]);   
+    }
+
+
 }
