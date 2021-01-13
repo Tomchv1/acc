@@ -5,7 +5,10 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Adherent;
+use App\Entity\Responsable;
+use App\Entity\Activites;
 
 class AdherentController extends AbstractController
 {
@@ -30,10 +33,19 @@ class AdherentController extends AbstractController
 
     public function consulterAdherent($adherent_id)
     {
-    	$adherent = $this->getDoctrine()->getRepository(Adherent::class)->find($adherent_id);
+    	$adherent = $this->getDoctrine()
+        ->getRepository(Adherent::class)
+        ->findOneById($adherent_id);
 
-        return $this->render('adherent/consulterAdherent.html.twig', ['consulter' => $adherent,]);
+        $activites = $this->getDoctrine()
+        ->getRepository(Activites::class)
+        ->findByAdherent($adherent_id);
+
+        $responsables = $this->getDoctrine()
+        ->getRepository(Responsable::class)
+        ->findByAdherent($adherent_id);
+
+
+        return $this->render('adherent/consulterAdherent.html.twig', ['consulter' => $adherent, 'pActivites' => $activites, 'pResponsables' => $responsables]);
     }
-
-
 }
