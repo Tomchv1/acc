@@ -40,11 +40,6 @@ class Adherent
     private $famille;
 
     /**
-     * @ORM\OneToMany(targetEntity=Adhesion::class, mappedBy="adherent")
-     */
-    private $adhesions;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Responsable::class, mappedBy="adherent")
      */
     private $responsables;
@@ -54,9 +49,13 @@ class Adherent
      */
     private $activites;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Adhesion::class, inversedBy="adherent", cascade={"persist", "remove"})
+     */
+    private $adhesion;
+
     public function __construct()
     {
-        $this->adhesionss = new ArrayCollection();
         $this->responsables = new ArrayCollection();
         $this->activites = new ArrayCollection();
     }
@@ -115,36 +114,6 @@ class Adherent
     }
 
     /**
-     * @return Collection|Adhesion[]
-     */
-    public function getAdhesions(): Collection
-    {
-        return $this->adhesions;
-    }
-
-    public function addAdhesions(Adhesion $adhesions): self
-    {
-        if (!$this->adhesions->contains($adhesions)) {
-            $this->adhesions[] = $adhesions;
-            $adhesions->setAdherent($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAdhesions(Adhesion $adhesions): self
-    {
-        if ($this->adhesions->removeElement($adhesions)) {
-            // set the owning side to null (unless already changed)
-            if ($adhesions->getAdherent() === $this) {
-                $adhesions->setAdherent(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
      * @return Collection|Responsable[]
      */
     public function getResponsables(): Collection
@@ -194,6 +163,18 @@ class Adherent
         if ($this->activites->removeElement($activite)) {
             $activite->removeAdherent($this);
         }
+
+        return $this;
+    }
+
+    public function getAdhesion(): ?Adhesion
+    {
+        return $this->adhesion;
+    }
+
+    public function setAdhesion(?Adhesion $adhesion): self
+    {
+        $this->adhesion = $adhesion;
 
         return $this;
     }

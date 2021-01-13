@@ -20,11 +20,6 @@ class Adhesion
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=11)
-     */
-    private $annee;
-
-    /**
      * @ORM\Column(type="float")
      */
     private $montant_a_regler;
@@ -40,14 +35,19 @@ class Adhesion
     private $banque;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Adherent::class, inversedBy="adhesionss")
+     * @ORM\ManyToMany(targetEntity=Paiement::class, mappedBy="adhesion")
+     */
+    private $paiements;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Adherent::class, mappedBy="adhesion", cascade={"persist", "remove"})
      */
     private $adherent;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Paiement::class, mappedBy="adhesion")
+     * @ORM\ManyToOne(targetEntity=Annee::class, inversedBy="adhesions")
      */
-    private $paiements;
+    private $annee;
 
     public function __construct()
     {
@@ -57,18 +57,6 @@ class Adhesion
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAnnee(): ?string
-    {
-        return $this->annee;
-    }
-
-    public function setAnnee(string $annee): self
-    {
-        $this->annee = $annee;
-
-        return $this;
     }
 
     public function getMontantARegler(): ?float
@@ -107,18 +95,6 @@ class Adhesion
         return $this;
     }
 
-    public function getAdherent(): ?Adherent
-    {
-        return $this->adherent;
-    }
-
-    public function setAdherent(?Adherent $adherent): self
-    {
-        $this->adherent = $adherent;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Paiement[]
      */
@@ -142,6 +118,40 @@ class Adhesion
         if ($this->paiements->removeElement($paiement)) {
             $paiement->removeAdhesion($this);
         }
+
+        return $this;
+    }
+
+    public function getAdherent(): ?Adherent
+    {
+        return $this->adherent;
+    }
+
+    public function setAdherent(?Adherent $adherent): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($adherent === null && $this->adherent !== null) {
+            $this->adherent->setAdhesion(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($adherent !== null && $adherent->getAdhesion() !== $this) {
+            $adherent->setAdhesion($this);
+        }
+
+        $this->adherent = $adherent;
+
+        return $this;
+    }
+
+    public function getAnnee(): ?Annee
+    {
+        return $this->annee;
+    }
+
+    public function setAnnee(?Annee $annee): self
+    {
+        $this->annee = $annee;
 
         return $this;
     }

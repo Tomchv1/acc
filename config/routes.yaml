@@ -8,3 +8,7 @@ route_accueil:
 liste-adherent:
     path: /liste-adherent
     controller: App\Controller\AdherentController::listerAdherent
+
+adherent-consulter:
+    path: /adherent/consulter/{adherent_id}
+    controller: App\Controller\AdherentController::consulterAdherent
