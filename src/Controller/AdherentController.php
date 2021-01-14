@@ -10,8 +10,10 @@ use App\Entity\Adherent;
 use App\Entity\Responsable;
 use App\Entity\Activites;
 
+
 class AdherentController extends AbstractController
 {
+
     /**
      * @Route("/adherent", name="adherent")
      */
@@ -35,17 +37,8 @@ class AdherentController extends AbstractController
     {
     	$adherent = $this->getDoctrine()
         ->getRepository(Adherent::class)
-        ->findOneById($adherent_id);
+        ->find($adherent_id);
 
-        $activites = $this->getDoctrine()
-        ->getRepository(Activites::class)
-        ->findByAdherent($adherent_id);
-
-        $responsables = $this->getDoctrine()
-        ->getRepository(Responsable::class)
-        ->findByAdherent($adherent_id);
-
-
-        return $this->render('adherent/consulterAdherent.html.twig', ['consulter' => $adherent, 'pActivites' => $activites, 'pResponsables' => $responsables]);
+        return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent]);
     }
 }

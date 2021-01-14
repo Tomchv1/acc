@@ -1,7 +1,7 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-route_accueil:
+accueil:
     path: /accueil
     controller: App\Controller\AdherentController::index
 
@@ -12,3 +12,11 @@ liste-adherent:
 adherent-consulter:
     path: /adherent/consulter/{adherent_id}
     controller: App\Controller\AdherentController::consulterAdherent
+
+liste-activites:
+    path: /liste-activites
+    controller: App\Controller\ActivitesController::listerActivites
+
+activites-consulter:
+    path: /activites/consulter/{activites_id}
+    controller: App\Controller\ActivitesController::consulterActivites

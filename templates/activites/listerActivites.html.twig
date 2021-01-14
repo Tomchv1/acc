@@ -4,38 +4,38 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Adhérents</title>
-		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Activités</title>
+    		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
             <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css">
     </head>
 <body>
 <br>
-<h1 class="display-6"><strong><u>Adhérents</u></strong></h1>
+<h1 class="display-6"><strong><u>Activités</u></strong></h1>
     <div class="container">
         <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
             <thead>
                 <tr align="center">
                     <th data-field="id" data-sortable="true">Id</th>
-                    <th data-field="nom" data-sortable="true">Nom</th>
-                    <th data-field="prenom" data-sortable="true">Prénom</th>
-                    <th data-field="dateNaiss" data-sortable="true">Date de naissance</th>
-                    <th data-field="famille" data-sortable="true">Famille</th>
-                    <th data-field="anneeAdhesion" data-sortable="true">Année adhésion</th>
-                    <th scope="col"></th>
+                    <th data-field="libelle" data-sortable="true">Libellé</th>
+                    <th data-field="ageMin" data-sortable="true">Âge minimum</th>
+                    <th data-field="ageMax" data-sortable="true">Âge maximum</th>
+                    <th data-field="tarifCours" data-sortable="true">Tarif Courseullais</th>
+                    <th data-field="tarifHorsCours" data-sortable="true">Tarif Hors-Courseullais</th>
+                    <th></th>
                 </tr>
             </thead>
                 <tbody>
-                    {% for adherent in pAdherents %}
+                    {% for activites in pActivites %}
                     <tr align="center">
-                        <th scope="row">{{adherent.id}}</th>
-                        <td>{{adherent.Nom}}</td>
-                        <td>{{adherent.Prenom}}</td>
-                        <td>{{adherent.DateNaissance}}</td>
-                        <td>{{adherent.famille.libelle}}</td>
-                        <td>{{adherent.adhesion.annee.libelle}}</td>
-                        <td><a href="{{ path('adherent-consulter', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <th scope="row">{{activites.id}}</th>
+                        <td>{{activites.Libelle}}</td>
+                        <td>{{activites.AgeMin}} ans</td>
+                        <td>{{activites.AgeMax}} ans</td>
+                        <td>{{activites.TarifCours}}€</td>
+                        <td>{{activites.TarifHorsCours}}€</td>
+                        <td><a href="{{ path('activites-consulter', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>

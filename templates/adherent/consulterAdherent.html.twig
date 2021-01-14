@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Accueil</title>
+        <title>Adhérent</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <body>
@@ -14,38 +14,58 @@
 
 <div class="card-group">
   <div class="card">
-    <img src="https://img.icons8.com/cotton/512/000000/conference-call.png" class="card-img-top" alt="...">
+    <img src="https://img.icons8.com/ios/500/000000/face.png" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{consulter.nom}} {{consulter.prenom}}</h5>
+      <h5 class="card-title">{{pAdherent.nom}} {{pAdherent.prenom}}</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Date de naissance : {{consulter.dateNaissance}}</li>
-          <li class="list-group-item">Année d'adhesion : {{consulter.adhesion.annee.libelle}}</li>
+          <li class="list-group-item">Date de naissance : {{pAdherent.dateNaissance}}</li>
+          <li class="list-group-item">Année d'adhesion : {{pAdherent.adhesion.annee.libelle}}</li>
       </ul>
     </div>
   </div>
 
   <div class="card">
-    <img src="https://img.icons8.com/wired/512/000000/price-tag-euro.png" class="card-img-top" alt="...">
+    <img src="https://img.icons8.com/ios/500/000000/euro-pound-exchange.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Informations côtisations</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Montant à régler : {{consulter.adhesion.montantARegler}}€</li>
-          <li class="list-group-item">Montant réglé : {{consulter.adhesion.montantRegle}}€</li>
-          <li class="list-group-item">Banque : {{consulter.adhesion.banque}}</li>
+          <li class="list-group-item">Montant à régler : {{pAdherent.adhesion.montantARegler}}€</li>
+          <li class="list-group-item">Montant réglé : {{pAdherent.adhesion.montantRegle}}€</li>
+          <li class="list-group-item">Banque : {{pAdherent.adhesion.banque}}</li>
         </ul>
     </div>
   </div>
 
   <div class="card">
-    <img src="https://img.icons8.com/ios-filled/500/000000/to-do.png" class="card-img-top" alt="...">
+    <img src="https://img.icons8.com/ios/500/000000/mommy-and-me-classes.png" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Activité(s)</h5>
         <ul class="list-group list-group-flush">
-
-            <li class="list-group-item"></li>
-
+          {% for activite in pAdherent.activites %}
+            <li class="list-group-item">{{activite.libelle}}</li>
+          {% endfor %}
+        </ul>
     </div>
   </div>
+</div>
+<br>
+<br>
+
+<h1 class="display-6"><strong><u>Responsable(s)</u></strong></h1>
+<div class="card-group">
+  {% for responsable in pAdherent.responsables %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{responsable.nom}} {{responsable.prenom}}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Téléphone : {{responsable.telephone}}</li>
+          <li class="list-group-item">Portable : {{responsable.portable}}</li>
+          <li class="list-group-item">E-Mail : {{responsable.mail}}</li>
+          <li class="list-group-item">Adresse : {{responsable.adresse}} - {{responsable.ville}} {{responsable.cp}}</li>
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 
     </div>
