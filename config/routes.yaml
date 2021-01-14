@@ -16,3 +16,7 @@ adherent-consulter:
 liste-activites:
     path: /liste-activites
     controller: App\Controller\ActivitesController::listerActivites
+
+activites-consulter:
+    path: /activites/consulter/{activites_id}
+    controller: App\Controller\ActivitesController::consulterActivites

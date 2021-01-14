@@ -4,12 +4,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Adhérents</title>
+        <title>Activités</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <body>
     <br>
-    <h1 class="display-6"><strong><u>Adhérents</u></strong></h1>
+    <h1 class="display-6"><strong><u>Activités</u></strong></h1>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -25,7 +25,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Vous pouvez gérér vos adhérents à partir de cette page !
+        Vous pouvez gérér vos activités à partir de cette page !
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
@@ -40,22 +40,24 @@
             <thead>
                 <tr align="center">
                     <th scope="col">Id</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Prénom</th>
-                    <th scope="col">Date de naissance</th>
-                    <th scope="col">Année adhésion</th>
+                    <th scope="col">Libellé</th>
+                    <th scope="col">Âge minimum</th>
+                    <th scope="col">Âge maximum</th>
+                    <th scope="col">Tarifs Courseullais</th>
+                    <th scope="col">Tarifs Hors-Courseullais</th>
                     <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
-                    {% for adherent in pAdherents %}
+                    {% for activites in pActivites %}
                     <tr align="center">
-                        <th scope="row">{{adherent.id}}</th>
-                        <td>{{adherent.Nom}}</td>
-                        <td>{{adherent.Prenom}}</td>
-                        <td>{{adherent.DateNaissance}}</td>
-                        <td>{{adherent.adhesion.annee.libelle}}</td>
-                        <td><a href="{{ path('adherent-consulter', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <th scope="row">{{activites.id}}</th>
+                        <td>{{activites.Libelle}}</td>
+                        <td>{{activites.AgeMin}} ans</td>
+                        <td>{{activites.AgeMax}} ans</td>
+                        <td>{{activites.TarifCours}}€</td>
+                        <td>{{activites.TarifHorsCours}}€</td>
+                        <td><a href="{{ path('activites-consulter', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>
