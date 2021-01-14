@@ -39,14 +39,6 @@ class AdherentController extends AbstractController
         ->getRepository(Adherent::class)
         ->find($adherent_id);
 
-        // $activites = $this->getDoctrine()
-        // ->getRepository(Activites::class)
-        // ->find($adherent_id);
-
-        // $responsables = $this->getDoctrine()
-        // ->getRepository(Responsable::class)
-        // ->findByAdherent($adherent);
-
-        return $this->render('adherent/consulterAdherent.html.twig', ['consulter' => $adherent,]);
+        return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent]);
     }
 }
