@@ -30,18 +30,10 @@ class ActivitesController extends AbstractController
 
     public function consulterActivites($activites_id)
     {
-    	$activites = $this->getDoctrine()
+    	$activite = $this->getDoctrine()
         ->getRepository(Activites::class)
         ->find($activites_id);
 
-        // $activites = $this->getDoctrine()
-        // ->getRepository(Activites::class)
-        // ->find($adherent_id);
-
-        // $responsables = $this->getDoctrine()
-        // ->getRepository(Responsable::class)
-        // ->findByAdherent($adherent);
-
-        return $this->render('activites/consulterActivites.html.twig', ['consulter' => $activites,]);
+        return $this->render('activites/consulterActivites.html.twig', ['pActivite' => $activite,]);
     }
 }

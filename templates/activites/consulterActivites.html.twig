@@ -10,22 +10,28 @@
     <body>
     <br>
     <div class="container">
-    <h1 class="display-6"><strong><u>{{consulter.libelle}}</u></strong></h1><br>
+    <h1 class="display-6"><strong><u>{{pActivite.libelle}}</u></strong></h1><br>
       <ul class="list-group">
-        <li class="list-group-item">Âge minimum : <strong>{{consulter.ageMin}} ans</strong></li>
-        <li class="list-group-item">Âge maximum : <strong>{{consulter.ageMax}} ans</strong></li>
-        <li class="list-group-item">Tarif Courseullais : <strong>{{consulter.tarifCours}}€</strong></li>
-        <li class="list-group-item">Tarif Hors-commune : <strong>{{consulter.tarifHorsCours}}€</strong></li>
+        <li class="list-group-item">Âge minimum : <strong>{{pActivite.ageMin}} ans</strong></li>
+        <li class="list-group-item">Âge maximum : <strong>{{pActivite.ageMax}} ans</strong></li>
+        <li class="list-group-item">Tarif Courseullais : <strong>{{pActivite.tarifCours}}€</strong></li>
+        <li class="list-group-item">Tarif Hors-commune : <strong>{{pActivite.tarifHorsCours}}€</strong></li>
       </ul><br><br>
 
 
     <h1 class="display-6"><strong><u>Horaire(s)</u></strong></h1>
-      <ul class="list-group">
-        {% for activites in consulter %}
-          <li class="list-group-item">Jour : <strong>{{consulter.horaire.jour}}</strong></li>
-          <li class="list-group-item">Plage horaire : <strong>{{consulter.horaire.dateDebut}} à {{consulter.horaire.dateFin}}</strong></li>
-        {% endfor %}
+<div class="card-group">
+  {% for horaire in pActivite.horaires %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{horaire.jour}}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">De {{horaire.dateDebut}} à : {{horaire.dateFin}}</li>
       </ul>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 
 
