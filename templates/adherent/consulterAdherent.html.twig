@@ -41,9 +41,10 @@
     <div class="card-body">
       <h5 class="card-title">Activité(s)</h5>
         <ul class="list-group list-group-flush">
-
-            <li class="list-group-item"></li>
-
+          {% for adherent in consulter %}
+            <li class="list-group-item">{{consulter.activites.id}}</li>
+          {% endfor %}
+        </ul>
     </div>
   </div>
 </div>
