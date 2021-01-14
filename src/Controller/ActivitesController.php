@@ -34,7 +34,6 @@ class ActivitesController extends AbstractController
         ->getRepository(Activites::class)
         ->find($activites_id);
 
-        var_dump($activites);
         // $activites = $this->getDoctrine()
         // ->getRepository(Activites::class)
         // ->find($adherent_id);

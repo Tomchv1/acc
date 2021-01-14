@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, Bootstrap Table!</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css">
+</head>
+<body>
+<div class="container">
+    <!--
+    data-search="true" ajoute une barre de recherche au dessus de la table
+    -->
+    <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
+        <thead>
+        <tr>
+            <!--
+            data-checkbox="true" => pour les cases à chocher pour la selection mutliple
+            /!\ Ne pas oublier d'ajouter une case vide à chaque lignes
+            -->
+            <th data-checkbox="true">ID</th>
+
+            <!--
+            data-sortable="true" => pour trier les colonnes (Ajouter la classe à chaque entête que l'on souhaite trier)
+            /!\ Ne pas oublier de donner un id UNIQUE à chaque entête (balise <th></th>), sinon il duplique des champs.
+            -->
+            <th data-field="id" data-sortable="true">ID</th>
+            <th data-field="nom" data-sortable="true">Nom</th>
+            <th data-field="prenom" data-sortable="true">Prénom</th>
+            <th data-field="section" data-sortable="true">Section</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td></td>
+            <td>1</td>
+            <td>DUBOSQ</td>
+            <td>Noé</td>
+            <td>SIO2_SLAM</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>2</td>
+            <td>CHAUVIN</td>
+            <td>Tom</td>
+            <td>SIO2_SLAM</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>3</td>
+            <td>CANET</td>
+            <td>Hugo</td>
+            <td>SIO2_SISR</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>4</td>
+            <td>PICOT</td>
+            <td>Noam</td>
+            <td>SIO2_SISR</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>5</td>
+            <td>FRANCE</td>
+            <td>Thomas</td>
+            <td>SIO1</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
+</body>
+</html>
