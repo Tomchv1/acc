@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Adherent;
 use App\Entity\Responsable;
 use App\Entity\Activites;
+use App\Entity\Famille;
+use App\Entity\Adhesion;
+use App\Form\AdherentType;
 
 
 class AdherentController extends AbstractController
@@ -40,5 +43,28 @@ class AdherentController extends AbstractController
         ->find($adherent_id);
 
         return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent]);
+    }
+
+
+    public function ajouterAdherent(Request $request)
+    {         
+        $adherent = new Adherent();
+        $form = $this->createForm(AdherentType::class, $adherent);
+        $form->handleRequest($request);
+             
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+             
+                $adherent = $form->getData();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($adherent);
+                $entityManager->flush();
+             
+                return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent,]);
+        }
+        else
+        {
+            return $this->render('adherent/ajouterAdherent.html.twig', array('form' => $form->createView(),));
+        }
     }
 }

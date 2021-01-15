@@ -13,6 +13,10 @@ adherent-consulter:
     path: /adherent/consulter/{adherent_id}
     controller: App\Controller\AdherentController::consulterAdherent
 
+adherent-ajouter:
+    path: /adherent-ajouter
+    controller: App\Controller\AdherentController::ajouterAdherent
+
 liste-activites:
     path: /liste-activites
     controller: App\Controller\ActivitesController::listerActivites
