@@ -20,3 +20,15 @@ liste-activites:
 activites-consulter:
     path: /activites/consulter/{activites_id}
     controller: App\Controller\ActivitesController::consulterActivites
+
+reglages:
+    path: /reglages
+    controller: App\Controller\AdminController::listerReglages
+
+paiement-consulter:
+    path: /paiement/consulter/{paiement_id}
+    controller: App\Controller\AdminController::consulterPaiment
+
+annee-consulter:
+    path: /annee/consulter/{annee_id}
+    controller: App\Controller\AdminController::consulterPaiment

@@ -1,0 +1,70 @@
+{% include "adherent/entete.html.twig" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Règlages</title>
+		    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.css">
+    </head>
+<body>
+<div class="container">
+<br>
+<h1 class="display-6"><strong><u>Mèthodes de paiements</u></strong></h1>
+    
+        <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
+            <thead>
+                <tr align="center">
+                    <th data-field="id" data-sortable="true">Id</th>
+                    <th data-field="nom" data-sortable="true">Libelle</th>
+                    <th data-field="prenom" data-sortable="true">Nombre de mensualité</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for paiement in pPaiements %}
+                    <tr align="center">
+                        <th scope="row">{{paiement.id}}</th>
+                        <td>{{paiement.libelle}}</td>
+                        <td>{{paiement.mensualite}}</td>
+                        <td><a href="{{ path('paiement-consulter', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                    </tr>   
+                    {% endfor %}
+                </tbody>
+        </table><br><br>
+
+<h1 class="display-6"><strong><u>Années</u></strong></h1>
+        <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
+            <thead>
+                <tr align="center">
+                    <th data-field="id" data-sortable="true">Id</th>
+                    <th data-field="nom" data-sortable="true">Libelle</th>
+                    <th data-field="nb_adherent" data-sortable="true">Nombre d'adhérents</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for annee in pAnnees %}
+                    <tr align="center">
+                        <th scope="row">{{annee.id}}</th>
+                        <td>{{annee.libelle}}</td>
+                        <th>{{annee.adhesions.count}}</th>
+                        <td><a href="{{ path('annee-consulter', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                    </tr>   
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/bootstrap-table@1.18.0/dist/bootstrap-table.min.js"></script>
+</body>
+</html>
+{% endblock %}
