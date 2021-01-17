@@ -70,6 +70,11 @@ class Activites
         return $this->libelle;
     }
 
+    public function __toString()
+    {
+        return $this->libelle;
+    }
+
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
