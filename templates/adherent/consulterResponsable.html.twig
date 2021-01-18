@@ -10,35 +10,26 @@
     <body>
     <br>
     <div class="container">
-    <h1 class="display-6"><strong><u>Adhesion</u></strong></h1>
+    <h1 class="display-6"><strong><u>Responsable</u></strong></h1>
 
 <div class="card-group">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Identifiant : {{pAdhesion.id}}</h5>
-      <p><i><strong>A retenir !</strong></i></p>
+      <h5 class="card-title">{{pResponsable.nom}} {{pResponsable.prenom}}</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Montant à régler : {{pAdhesion.montantARegler}}€</li>
-          <li class="list-group-item">Montant réglé : {{pAdhesion.montantRegle}}€</li>
-          <li class="list-group-item">Banque : {{pAdhesion.banque}}</li>
-          <li class="list-group-item">Année d'adhesion : {{pAdhesion.annee.libelle}}</li>
+          <li class="list-group-item">Genre : {{pResponsable.genre}}</li>
+          <li class="list-group-item">Téléphone : {{pResponsable.telephone}}</li>
+          <li class="list-group-item">Portable : {{pResponsable.portable}}</li>
+          <li class="list-group-item">E-Mail : {{pResponsable.mail}}</li>
+          <li class="list-group-item">Adresse : {{pResponsable.adresse}}</li>
+          <li class="list-group-item">Ville : {{pResponsable.ville}} {{pResponsable.cp}}</li>
       </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Méthode de paiement</h5>
-        <ul class="list-group list-group-flush">
-          {% for paiement in pAdhesion.paiements %}
-            <li class="list-group-item">{{paiement.libelle}} - {{paiement.mensualite}} fois</li>
-          {% endfor %}
-        </ul>
     </div>
   </div>
 </div>
 <br>
-<a href="{{ path('adherent-ajouter') }}"><button type="button" class="btn btn-primary">Attribuer et créer un adhérent</button></a>
+<a href="{{ path('responsable-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter un autre responsable</button></a>
+<a href="{{ path('adhesion-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une adhesion</button></a>
 <br>
 <br>
 
