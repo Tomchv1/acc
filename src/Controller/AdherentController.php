@@ -17,6 +17,7 @@ use App\Entity\Annee;
 use App\Form\AdherentType;
 use App\Form\AdhesionType;
 use App\Form\ResponsableType;
+use App\Form\FamilleType;
 
 class AdherentController extends AbstractController
 {
@@ -118,6 +119,29 @@ class AdherentController extends AbstractController
         else
         {
             return $this->render('adherent/ajouterResponsable.html.twig', array('form' => $form->createView(),));
+        }
+
+    }
+
+    public function ajouterFamille(Request $request)
+    {         
+        $famille = new Famille();
+        $form = $this->createForm(FamilleType::class, $famille);
+        $form->handleRequest($request);
+             
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+             
+                $famille = $form->getData();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($famille);
+                $entityManager->flush();
+
+                return $this->render('adherent/consulterFamille.html.twig', ['pFamille' => $famille,]);
+        }
+        else
+        {
+            return $this->render('adherent/ajouterFamille.html.twig', array('form' => $form->createView(),));
         }
 
     }

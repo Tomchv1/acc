@@ -2,11 +2,8 @@
 
 namespace App\Form;
 
+use App\Entity\Famille;
 use App\Entity\Adherent;
-use App\Entity\Annee;
-use App\Entity\Paiement;
-use App\Entity\Adhesion;
-use App\Entity\Responsable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,27 +18,13 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class ResponsableType extends AbstractType
+
+class FamilleType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('genre', ChoiceType::class,  [
-                'label' => 'Genre :',
-                'required' => false,
-                'choices' => array(
-                    'Femme' => 'Femme',
-                    'Homme' => 'Homme',
-                    'Autres' => 'Autres'),
-                'placeholder' => 'Genre',])
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('telephone', TextType::class)
-            ->add('portable', TextType::class)
-            ->add('mail', TextType::class)
-            ->add('adresse', TextType::class)
-            ->add('ville', TextType::class)
-            ->add('cp', TextType::class)
+            ->add('libelle', TextType::class)
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))
         ;
@@ -50,7 +33,7 @@ class ResponsableType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Responsable::class,
+            'data_class' => Famille::class,
         ]);
     }
 }

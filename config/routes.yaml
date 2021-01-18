@@ -44,3 +44,7 @@ adhesion-ajouter:
 responsable-ajouter:
     path: /responsable-ajouter
     controller: App\Controller\AdherentController::ajouterResponsable
+
+famille-ajouter:
+    path: /famille-ajouter
+    controller: App\Controller\AdherentController::ajouterFamille

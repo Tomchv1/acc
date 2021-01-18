@@ -4,33 +4,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Adhesion</title>
+        <title>Famille</title>
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
     <body>
     <br>
     <div class="container">
-    <h1 class="display-6"><strong><u>Responsable</u></strong></h1>
+    <h1 class="display-6"><strong><u>Famille</u></strong></h1>
 
 <div class="card-group">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">{{pResponsable.nom}} {{pResponsable.prenom}}</h5>
+      <h5 class="card-title">Identifiant : {{pFamille.id}}</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Genre : {{pResponsable.genre}}</li>
-          <li class="list-group-item">Téléphone : {{pResponsable.telephone}}</li>
-          <li class="list-group-item">Portable : {{pResponsable.portable}}</li>
-          <li class="list-group-item">E-Mail : {{pResponsable.mail}}</li>
-          <li class="list-group-item">Adresse : {{pResponsable.adresse}}</li>
-          <li class="list-group-item">Ville : {{pResponsable.ville}} {{pResponsable.cp}}</li>
+          <li class="list-group-item">Libellé de la famille : {{pFamille.libelle}}</li>
       </ul>
     </div>
   </div>
 </div>
 <br>
-<a href="{{ path('responsable-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter un autre responsable</button></a>
-<a href="{{ path('famille-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une famille</button></a>
-<a href="{{ path('adhesion-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une adhesion</button></a>
+<a href="{{ path('adhesion-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une adhésion</button></a>
 <br>
 <br>
 
