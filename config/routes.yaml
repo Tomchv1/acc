@@ -36,3 +36,11 @@ paiement-consulter:
 annee-consulter:
     path: /annee/consulter/{annee_id}
     controller: App\Controller\AdminController::consulterPaiment
+
+adhesion-ajouter:
+    path: /adhesion-ajouter
+    controller: App\Controller\AdherentController::ajouterAdhesion
+
+responsable-ajouter:
+    path: /responsable-ajouter
+    controller: App\Controller\AdherentController::ajouterResponsable

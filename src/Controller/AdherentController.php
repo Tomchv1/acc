@@ -12,7 +12,11 @@ use App\Entity\Responsable;
 use App\Entity\Activites;
 use App\Entity\Famille;
 use App\Entity\Adhesion;
+use App\Entity\Paiement;
+use App\Entity\Annee;
 use App\Form\AdherentType;
+use App\Form\AdhesionType;
+use App\Form\ResponsableType;
 
 class AdherentController extends AbstractController
 {
@@ -66,6 +70,54 @@ class AdherentController extends AbstractController
         else
         {
             return $this->render('adherent/ajouterAdherent.html.twig', array('form' => $form->createView(),));
+        }
+
+    }
+
+
+    public function ajouterAdhesion(Request $request)
+    {         
+        $adhesion = new Adhesion();
+        $form = $this->createForm(AdhesionType::class, $adhesion);
+        $form->handleRequest($request);
+             
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+             
+                $adhesion = $form->getData();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($adhesion);
+                $entityManager->flush();
+
+                return $this->render('adherent/consulterAdhesion.html.twig', ['pAdhesion' => $adhesion,]);
+        }
+        else
+        {
+            return $this->render('adherent/ajouterAdhesion.html.twig', array('form' => $form->createView(),));
+        }
+
+    }
+
+
+    public function ajouterResponsable(Request $request)
+    {         
+        $responsable = new Responsable();
+        $form = $this->createForm(ResponsableType::class, $responsable);
+        $form->handleRequest($request);
+             
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+             
+                $responsable = $form->getData();
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($responsable);
+                $entityManager->flush();
+
+                return $this->render('adherent/consulterResponsable.html.twig', ['pResponsable' => $responsable,]);
+        }
+        else
+        {
+            return $this->render('adherent/ajouterResponsable.html.twig', array('form' => $form->createView(),));
         }
 
     }

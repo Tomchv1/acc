@@ -98,7 +98,7 @@ class Responsable
 
     public function __toString()
     {
-        return $this->nom;
+        return sprintf('%s %s', $this->nom, $this->prenom);
     }
 
     public function setNom(string $nom): self
