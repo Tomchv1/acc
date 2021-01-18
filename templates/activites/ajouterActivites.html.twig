@@ -10,31 +10,26 @@
     <body>
     <br>
     <div class="container">
-    <h1 class="display-6"><strong><u>Nouvelle adhésion</u></strong></h1><br>
-
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>ATTENTION</strong> Vous devez ajouter une adhesion avant de créer votre adhérent !
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
+    <h1 class="display-6"><strong><u>Nouvelle activités</u></strong></h1><br>
 
 
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Montant à régler</label>
-    {{ form_widget(form.montantARegler, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Libellé</label>
+    {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}})}}<br>
         
-  <label class="form-label">Montant réglé</label>
-    {{ form_widget(form.montantRegle, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Âge minimum</label>
+    {{ form_widget(form.ageMin, {'attr': {'class': 'form-control'}})}}<br>
       
-  <label class="form-label">Banque</label>
-    {{ form_widget(form.banque, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Âge maximum</label>
+    {{ form_widget(form.ageMax, {'attr': {'class': 'form-control'}})}}<br>
       
-  <label class="form-label">Méthode de paiement</label>
-    {{ form_widget(form.paiements, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Tarif Courseullais</label>
+    {{ form_widget(form.tarifCours, {'attr': {'class': 'form-control'}})}}<br>
 
-  <label class="form-label">Année d'adhesion</label>
-    {{ form_widget(form.annee, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Tarif Hors-commune</label>
+    {{ form_widget(form.tarifHorsCours, {'attr': {'class': 'form-control'}})}}<br>
 
 <br>
 <div class="col-12">

@@ -31,7 +31,7 @@ class AdhesionType extends AbstractType
             ->add('paiements', EntityType::class, array('class' => 'App\Entity\Paiement', 'multiple' => 'Libelle'))
             ->add('annee', EntityType::class, array('class' => 'App\Entity\Annee', 'choice_label' => 'Libelle'))
 
-            ->add('enregistrer', SubmitType::class, array('label' => 'Nouvel adhesion'))
+            ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))
         ;
     }
 

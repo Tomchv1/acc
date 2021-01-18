@@ -25,6 +25,10 @@ activites-consulter:
     path: /activites/consulter/{activites_id}
     controller: App\Controller\ActivitesController::consulterActivites
 
+activites-ajouter:
+    path: /activites-ajouter
+    controller: App\Controller\ActivitesController::ajouterActivites
+
 reglages:
     path: /reglages
     controller: App\Controller\AdminController::listerReglages

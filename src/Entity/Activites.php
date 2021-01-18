@@ -180,7 +180,6 @@ class Activites
                 $horaire->setActivites(null);
             }
         }
-
         return $this;
     }
 }

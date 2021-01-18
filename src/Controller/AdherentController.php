@@ -28,8 +28,7 @@ class AdherentController extends AbstractController
     public function index(): Response
     {
         return $this->render('adherent/index.html.twig', [
-            'controller_name' => 'AdherentController',
-        ]);
+            'controller_name' => 'AdherentController',]);
     }
 
     public function listerAdherent()
@@ -58,21 +57,18 @@ class AdherentController extends AbstractController
         $form->handleRequest($request);
              
         if ($form->isSubmitted() && $form->isValid()) 
-        {
-             
-                $adherent = $form->getData();
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($adherent);
-                $entityManager->flush();
+        {             
+            $adherent = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($adherent);
+            $entityManager->flush();
 
-             
-                return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent,]);
+            return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent,]);
         }
         else
         {
             return $this->render('adherent/ajouterAdherent.html.twig', array('form' => $form->createView(),));
         }
-
     }
 
 
@@ -83,20 +79,18 @@ class AdherentController extends AbstractController
         $form->handleRequest($request);
              
         if ($form->isSubmitted() && $form->isValid()) 
-        {
-             
-                $adhesion = $form->getData();
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($adhesion);
-                $entityManager->flush();
+        {  
+            $adhesion = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($adhesion);
+            $entityManager->flush();
 
-                return $this->render('adherent/consulterAdhesion.html.twig', ['pAdhesion' => $adhesion,]);
+            return $this->render('adherent/consulterAdhesion.html.twig', ['pAdhesion' => $adhesion,]);
         }
         else
         {
             return $this->render('adherent/ajouterAdhesion.html.twig', array('form' => $form->createView(),));
         }
-
     }
 
 
@@ -108,20 +102,19 @@ class AdherentController extends AbstractController
              
         if ($form->isSubmitted() && $form->isValid()) 
         {
-             
-                $responsable = $form->getData();
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($responsable);
-                $entityManager->flush();
+            $responsable = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($responsable);
+            $entityManager->flush();
 
-                return $this->render('adherent/consulterResponsable.html.twig', ['pResponsable' => $responsable,]);
+            return $this->render('adherent/consulterResponsable.html.twig', ['pResponsable' => $responsable,]);
         }
         else
         {
             return $this->render('adherent/ajouterResponsable.html.twig', array('form' => $form->createView(),));
         }
-
     }
+
 
     public function ajouterFamille(Request $request)
     {         
@@ -131,18 +124,16 @@ class AdherentController extends AbstractController
              
         if ($form->isSubmitted() && $form->isValid()) 
         {
-             
-                $famille = $form->getData();
-                $entityManager = $this->getDoctrine()->getManager();
-                $entityManager->persist($famille);
-                $entityManager->flush();
+            $famille = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($famille);
+            $entityManager->flush();
 
-                return $this->render('adherent/consulterFamille.html.twig', ['pFamille' => $famille,]);
+            return $this->render('adherent/consulterFamille.html.twig', ['pFamille' => $famille,]);
         }
         else
         {
             return $this->render('adherent/ajouterFamille.html.twig', array('form' => $form->createView(),));
         }
-
     }
 }
