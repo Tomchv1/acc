@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Activites;
+use App\Entity\Horaire;
+use App\Form\HoraireType;
 use App\Form\ActivitesType;
 
 class ActivitesController extends AbstractController
@@ -57,6 +59,27 @@ class ActivitesController extends AbstractController
         else
         {
             return $this->render('activites/ajouterActivites.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function ajouterHoraire(Request $request)
+    {         
+        $horaire = new Horaire();
+        $form = $this->createForm(HoraireType::class, $horaire);
+        $form->handleRequest($request);
+             
+        if ($form->isSubmitted() && $form->isValid()) 
+        {
+            $horaire = $form->getData();
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($horaire);
+            $entityManager->flush();
+
+            return $this->render('activites/consulterHoraire.html.twig', ['pHoraire' => $horaire,]);
+        }
+        else
+        {
+            return $this->render('activites/ajouterHoraire.html.twig', array('form' => $form->createView(),));
         }
     }
 }
