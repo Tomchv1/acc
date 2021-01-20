@@ -19,6 +19,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 
 class AdherentType extends AbstractType
@@ -30,8 +31,10 @@ class AdherentType extends AbstractType
             ->add('prenom', TextType::class)
             ->add('date_naissance', TextType::class)
             ->add('famille', EntityType::class, array('class' => 'App\Entity\Famille', 'choice_label' => 'Libelle'))
-            ->add('responsables', EntityType::class, array('class' => 'App\Entity\Responsable', 'multiple' => 'Nom'))
-            ->add('activites', EntityType::class, array('class' => 'App\Entity\Activites', 'multiple' => 'Libelle'))
+            ->add($builder->create('responsables', FormType::class, ['by_reference' => false])
+                ->add('responsables', EntityType::class, array('class' => 'App\Entity\Responsable', 'choice_label' => 'Id')))
+            ->add($builder->create('activites', FormType::class, ['by_reference' => false])
+                ->add('activites', EntityType::class, array('class' => 'App\Entity\Activites', 'choice_label' => 'Id')))
             ->add('adhesion', EntityType::class, array('class' => 'App\Entity\Adhesion', 'choice_label' => 'Id'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))

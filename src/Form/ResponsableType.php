@@ -27,13 +27,13 @@ class ResponsableType extends AbstractType
     {
         $builder
             ->add('genre', ChoiceType::class,  [
-                'label' => 'Genre :',
-                'required' => false,
-                'choices' => array(
+                    'label' => 'Genre :',
+                    'required' => false,
+                    'choices' => array(
                     'Femme' => 'Femme',
                     'Homme' => 'Homme',
                     'Autres' => 'Autres'),
-                'placeholder' => 'Genre',])
+                    'placeholder' => 'Genre',])
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
             ->add('telephone', TextType::class)

@@ -96,11 +96,6 @@ class Responsable
         return $this->nom;
     }
 
-    public function __toString()
-    {
-        return sprintf('%s %s', $this->nom, $this->prenom);
-    }
-
     public function setNom(string $nom): self
     {
         $this->nom = $nom;
@@ -214,5 +209,10 @@ class Responsable
         $this->adherent->removeElement($adherent);
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return sprintf('%s %s %s', $this->id, $this->nom, $this->prenom);
     }
 }

@@ -138,9 +138,17 @@ class Adherent
 
     public function removeResponsable(Responsable $responsable): self
     {
-        if ($this->responsables->removeElement($responsable)) {
-            $responsable->removeAdherent($this);
+        if ($this->responsables->contains($responsable)) {
+        $this->responsables->removeElement($responsable);
+        // set the owning side to null (unless already changed)
+            if ($responsable->getAdherent() === $this) {
+                $thing->setAdherent(null);
+            }
         }
+
+        // if ($this->responsables->removeElement($responsable)) {
+        //     $responsable->removeAdherent($this);
+        // }
 
         return $this;
     }
