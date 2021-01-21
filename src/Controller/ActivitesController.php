@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Activites;
 use App\Entity\Horaire;
 use App\Form\HoraireType;
+use App\Form\HoraireModifierType;
 use App\Form\ActivitesType;
 use App\Form\ActivitesModifierType;
 
@@ -114,6 +115,38 @@ class ActivitesController extends AbstractController
         else
         {
             return $this->render('activites/ajouterHoraire.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function modifierHoraire($horaire_id, Request $request){
+ 
+        $horaire = $this->getDoctrine()
+        ->getRepository(Horaire::class)
+        ->find($horaire_id);
+ 
+        if (!$horaire) {
+            throw $this->createNotFoundException('Aucune horaire trouvée avec le numéro '.$paiement_id);
+        }
+        else
+        {
+            $form = $this->createForm(HoraireModifierType::class, $horaire);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $horaire = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($horaire);
+                 $entityManager->flush();
+
+                 $activites = $this->getDoctrine()
+                ->getRepository(Activites::class)
+                ->findAll();
+            
+                return $this->render('activites/listerActivites.html.twig', ['pActivites' => $activites,]); 
+           }
+           else{
+                return $this->render('activites/ajouterHoraire.html.twig', array('form' => $form->createView(),));
+           }
         }
     }
 }
