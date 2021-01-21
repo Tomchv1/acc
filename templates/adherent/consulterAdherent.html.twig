@@ -20,6 +20,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Date de naissance : {{pAdherent.dateNaissance}}</li>
           <li class="list-group-item">Année d'adhesion : {{pAdherent.adhesion.annee.libelle}}</li>
+          <li class="list-group-item"><a href="{{ path('adherent-modifier', { 'adherent_id': pAdherent.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></li>
       </ul>
     </div>
   </div>
@@ -45,6 +46,7 @@
           {% for activite in pAdherent.activites %}
             <li class="list-group-item">{{activite.libelle}}</li>
           {% endfor %}
+          <li class="list-group-item"><a href="{{ path('adherent-modifier', { 'adherent_id': pAdherent.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></li>
         </ul>
     </div>
   </div>

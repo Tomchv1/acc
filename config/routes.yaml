@@ -81,9 +81,21 @@ adhesion-modifier:
     path: /adhesion-modifier/{adhesion_id}
     controller: App\Controller\AdherentController::modifierAdhesion
 
+responsable-consulter:
+    path: /responsable-consulter/{responsable_id}
+    controller: App\Controller\AdherentController::consulterResponsable
+
+liste-responsable:
+    path: /liste-responsable
+    controller: App\Controller\AdherentController::listerResponsable
+
 responsable-ajouter:
     path: /responsable-ajouter
     controller: App\Controller\AdherentController::ajouterResponsable
+
+responsable-modifier:
+    path: /responsable-modifier/{responsable_id}
+    controller: App\Controller\AdherentController::modifierResponsable
 
 famille-ajouter:
     path: /famille-ajouter

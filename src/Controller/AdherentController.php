@@ -19,6 +19,7 @@ use App\Form\AdherentModifierType;
 use App\Form\AdhesionType;
 use App\Form\AdhesionModifierType;
 use App\Form\ResponsableType;
+use App\Form\ResponsableModifierType;
 use App\Form\FamilleType;
 
 class AdherentController extends AbstractController
@@ -149,6 +150,24 @@ class AdherentController extends AbstractController
         }
     }
 
+    public function consulterResponsable($responsable_id)
+    {
+        $responsable = $this->getDoctrine()
+        ->getRepository(Responsable::class)
+        ->find($responsable_id);
+
+        return $this->render('adherent/consulterResponsable.html.twig', ['pResponsable' => $responsable]);
+    }
+
+    public function listerResponsable()
+    {
+        $responsable = $this->getDoctrine()
+        ->getRepository(Responsable::class)
+        ->findAll();
+         return $this->render('adherent/listerResponsable.html.twig', [
+            'pResponsable' => $responsable,]);  
+    }
+
 
     public function ajouterResponsable(Request $request)
     {         
@@ -168,6 +187,33 @@ class AdherentController extends AbstractController
         else
         {
             return $this->render('adherent/ajouterResponsable.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function modifierResponsable($responsable_id, Request $request){
+ 
+        $responsable = $this->getDoctrine()
+        ->getRepository(Responsable::class)
+        ->find($responsable_id);
+ 
+        if (!$responsable) {
+            throw $this->createNotFoundException('Aucun responsable trouvé avec le numéro '.$responsable_id);
+        }
+        else
+        {
+            $form = $this->createForm(ResponsableModifierType::class, $responsable);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $responsable = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($responsable);
+                 $entityManager->flush();
+                 return $this->render('adherent/consulterResponsable.html.twig', ['pResponsable' => $responsable,]);
+           }
+           else{
+                return $this->render('adherent/ajouterResponsable.html.twig', array('form' => $form->createView(),));
+           }
         }
     }
 

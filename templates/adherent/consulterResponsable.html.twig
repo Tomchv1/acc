@@ -10,8 +10,7 @@
     <body>
     <br>
     <div class="container">
-    <h1 class="display-6"><strong><u>Responsable</u></strong></h1>
-
+<h1 class="display-6"><strong><u>Responsable</u></strong></h1>
 <div class="card-group">
   <div class="card">
     <div class="card-body">
@@ -32,6 +31,21 @@
 <a href="{{ path('famille-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une famille</button></a>
 <a href="{{ path('adhesion-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une adhesion</button></a>
 <br>
+<br>
+
+<h1 class="display-6"><strong><u>Responsable de</u></strong></h1>
+<div class="card-group"> 
+  {% for adherent in pResponsable.adherent %}
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{adherent.nom}} {{adherent.prenom}}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Date de naissance : {{adherent.dateNaissance}}</li>
+      </ul>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 <br>
 
     </div>
