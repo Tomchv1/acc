@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Annee;
+use App\Entity\Paiement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,21 +17,26 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class AnneeType extends AbstractType
+class PaiementModifierType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('libelle', TextType::class)
+            ->add('mensualite', NumberType::class)
 
-            ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))
+            ->add('enregistrer', SubmitType::class, array('label' => 'Modifier'))
         ;
+    }
+
+    public function getParent(){
+      return PaiementType::class;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Annee::class,
+            'data_class' => Paiement::class,
         ]);
     }
 }

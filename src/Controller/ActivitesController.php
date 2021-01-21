@@ -75,7 +75,13 @@ class ActivitesController extends AbstractController
             $entityManager->persist($horaire);
             $entityManager->flush();
 
-            return $this->render('activites/consulterHoraire.html.twig', ['pHoraire' => $horaire,]);
+            $activites = $this->getDoctrine()
+            ->getRepository(Activites::class)
+            ->findAll();
+            
+            return $this->render('activites/listerActivites.html.twig', [
+            'pActivites' => $activites,]); 
+
         }
         else
         {

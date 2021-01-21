@@ -17,15 +17,19 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
-class AnneeType extends AbstractType
+class AnneeModifierType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('libelle', TextType::class)
 
-            ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))
+            ->add('enregistrer', SubmitType::class, array('label' => 'Modifier'))
         ;
+    }
+
+    public function getParent(){
+        return AnneeType::class;
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -11,6 +11,8 @@ use App\Entity\Paiement;
 use App\Entity\Annee;
 use App\Form\PaiementType;
 use App\Form\AnneeType;
+use App\Form\PaiementModifierType;
+use App\Form\AnneeModifierType;
 
 class AdminController extends AbstractController
 {
@@ -67,6 +69,33 @@ class AdminController extends AbstractController
         }
     }
 
+    public function modifierPaiement($paiement_id, Request $request){
+ 
+        $paiement = $this->getDoctrine()
+        ->getRepository(Paiement::class)
+        ->find($paiement_id);
+ 
+        if (!$paiement) {
+            throw $this->createNotFoundException('Aucun paiement trouvé avec le numéro '.$paiement_id);
+        }
+        else
+        {
+            $form = $this->createForm(PaiementModifierType::class, $paiement);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $paiement = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($paiement);
+                 $entityManager->flush();
+                 return $this->render('admin/consulterPaiement.html.twig', ['pPaiement' => $paiement,]);
+           }
+           else{
+                return $this->render('admin/ajouterPaiement.html.twig', array('form' => $form->createView(),));
+           }
+        }
+    }
+ 
     public function consulterAnnee($annee_id)
     {
         $annee = $this->getDoctrine()
@@ -94,6 +123,33 @@ class AdminController extends AbstractController
         else
         {
             return $this->render('admin/ajouterAnnee.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function modifierAnnee($annee_id, Request $request){
+ 
+        $annee = $this->getDoctrine()
+        ->getRepository(Annee::class)
+        ->find($annee_id);
+ 
+        if (!$annee) {
+            throw $this->createNotFoundException('Aucune année trouvé avec le numéro '.$annee_id);
+        }
+        else
+        {
+            $form = $this->createForm(AnneeModifierType::class, $annee);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $annee = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($annee);
+                 $entityManager->flush();
+                 return $this->render('admin/consulterAnnee.html.twig', ['pAnnee' => $annee,]);
+           }
+           else{
+                return $this->render('admin/ajouterAnnee.html.twig', array('form' => $form->createView(),));
+           }
         }
     }
 }
