@@ -11,6 +11,7 @@ use App\Entity\Activites;
 use App\Entity\Horaire;
 use App\Form\HoraireType;
 use App\Form\ActivitesType;
+use App\Form\ActivitesModifierType;
 
 class ActivitesController extends AbstractController
 {
@@ -59,6 +60,33 @@ class ActivitesController extends AbstractController
         else
         {
             return $this->render('activites/ajouterActivites.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function modifierActivites($activites_id, Request $request){
+ 
+        $activites = $this->getDoctrine()
+        ->getRepository(Activites::class)
+        ->find($activites_id);
+ 
+        if (!$activites) {
+            throw $this->createNotFoundException('Aucune activité trouvée avec le numéro '.$activites_id);
+        }
+        else
+        {
+            $form = $this->createForm(ActivitesModifierType::class, $activites);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $activites = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($activites);
+                 $entityManager->flush();
+                 return $this->render('activites/consulterActivites.html.twig', ['pActivite' => $activites,]);
+           }
+           else{
+                return $this->render('activites/ajouterActivites.html.twig', array('form' => $form->createView(),));
+           }
         }
     }
 

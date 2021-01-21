@@ -29,6 +29,10 @@ activites-ajouter:
     path: /activites-ajouter
     controller: App\Controller\ActivitesController::ajouterActivites
 
+activites-modifier:
+    path: /activites-modifier/{activites_id}
+    controller: App\Controller\ActivitesController::modifierActivites
+
 horaire-ajouter:
     path: /horaire-ajouter
     controller: App\Controller\ActivitesController::ajouterHoraire

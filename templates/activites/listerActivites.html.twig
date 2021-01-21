@@ -36,7 +36,7 @@
                         <td>{{activites.AgeMax}} ans</td>
                         <td>{{activites.TarifCours}}€</td>
                         <td>{{activites.TarifHorsCours}}€</td>
-                        <td><a href="{{ path('activites-consulter', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <td><a href="{{ path('activites-consulter', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('activites-modifier', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>
