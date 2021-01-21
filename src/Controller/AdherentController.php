@@ -15,6 +15,7 @@ use App\Entity\Adhesion;
 use App\Entity\Paiement;
 use App\Entity\Annee;
 use App\Form\AdherentType;
+use App\Form\AdherentModifierType;
 use App\Form\AdhesionType;
 use App\Form\ResponsableType;
 use App\Form\FamilleType;
@@ -68,6 +69,33 @@ class AdherentController extends AbstractController
         else
         {
             return $this->render('adherent/ajouterAdherent.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function modifierAdherent($adherent_id, Request $request){
+ 
+        $adherent = $this->getDoctrine()
+        ->getRepository(Adherent::class)
+        ->find($adherent_id);
+ 
+        if (!$adherent) {
+            throw $this->createNotFoundException('Aucun adhérent trouvé avec le numéro '.$adherent_id);
+        }
+        else
+        {
+            $form = $this->createForm(AdherentModifierType::class, $adherent);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $adherent = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($adherent);
+                 $entityManager->flush();
+                 return $this->render('adherent/consulterAdherent.html.twig', ['pAdherent' => $adherent,]);
+           }
+           else{
+                return $this->render('adherent/ajouterAdherent.html.twig', array('form' => $form->createView(),));
+           }
         }
     }
 

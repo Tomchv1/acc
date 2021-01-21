@@ -38,7 +38,7 @@
                         <td>{{adherent.DateNaissance}}</td>
                         <td>{{adherent.famille.libelle}}</td>
                         <td>{{adherent.adhesion.annee.libelle}}</td>
-                        <td><a href="{{ path('adherent-consulter', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <td><a href="{{ path('adherent-consulter', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('adherent-modifier', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>
