@@ -80,7 +80,7 @@ class AdherentController extends AbstractController
              
         if ($form->isSubmitted() && $form->isValid()) 
         {  
-            
+            $adhesion = $form->getData();
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($adhesion);
             $entityManager->flush();
