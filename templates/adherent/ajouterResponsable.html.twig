@@ -11,12 +11,10 @@
     <br>
     <div class="container">
     <h1 class="display-6"><strong><u>Nouveau responsable</u></strong></h1><br>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>ATTENTION</strong> Vous devez ajouter un responsable avant de créer votre adhérent !
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
 
-
+    <div class="alert alert-success" role="alert">
+      Les responsables de l'adhérent sont déjà renseignés ? <a href="{{ path('famille-ajouter') }}" class="alert-link">Cliquez ici</a> pour ajouter directement la famille.
+    </div>
 
 {{ form_start(form) }}
 

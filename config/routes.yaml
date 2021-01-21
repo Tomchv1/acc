@@ -77,6 +77,10 @@ adhesion-ajouter:
     path: /adhesion-ajouter
     controller: App\Controller\AdherentController::ajouterAdhesion
 
+adhesion-modifier:
+    path: /adhesion-modifier/{adhesion_id}
+    controller: App\Controller\AdherentController::modifierAdhesion
+
 responsable-ajouter:
     path: /responsable-ajouter
     controller: App\Controller\AdherentController::ajouterResponsable

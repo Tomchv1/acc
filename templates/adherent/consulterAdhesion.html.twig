@@ -16,7 +16,9 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Identifiant : {{pAdhesion.id}}</h5>
-      <p><i><strong>A retenir !</strong></i></p>
+      <div class="alert alert-warning" role="alert">
+        Merci de garder/noter en mémoire l'identifiant de l'adhésion pour la création de l'adhérent (Id : <strong>{{pAdhesion.id}}</strong>)
+      </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Montant à régler : {{pAdhesion.montantARegler}}€</li>
           <li class="list-group-item">Montant réglé : {{pAdhesion.montantRegle}}€</li>

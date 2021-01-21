@@ -17,6 +17,7 @@ use App\Entity\Annee;
 use App\Form\AdherentType;
 use App\Form\AdherentModifierType;
 use App\Form\AdhesionType;
+use App\Form\AdhesionModifierType;
 use App\Form\ResponsableType;
 use App\Form\FamilleType;
 
@@ -118,6 +119,33 @@ class AdherentController extends AbstractController
         else
         {
             return $this->render('adherent/ajouterAdhesion.html.twig', array('form' => $form->createView(),));
+        }
+    }
+
+    public function modifierAdhesion($adhesion_id, Request $request){
+ 
+        $adhesion = $this->getDoctrine()
+        ->getRepository(Adhesion::class)
+        ->find($adhesion_id);
+ 
+        if (!$adhesion) {
+            throw $this->createNotFoundException('Aucune adhésion trouvée avec le numéro '.$adhesion_id);
+        }
+        else
+        {
+            $form = $this->createForm(AdhesionModifierType::class, $adhesion);
+            $form->handleRequest($request);
+ 
+            if ($form->isSubmitted() && $form->isValid()) {
+                 $adhesion = $form->getData();
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($adhesion);
+                 $entityManager->flush();
+                 return $this->render('adherent/consulterAdhesion.html.twig', ['pAdhesion' => $adhesion,]);
+           }
+           else{
+                return $this->render('adherent/ajouterAdhesion.html.twig', array('form' => $form->createView(),));
+           }
         }
     }
 
