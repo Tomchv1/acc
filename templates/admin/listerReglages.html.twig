@@ -14,7 +14,7 @@
 <div class="container">
 <br>
 <h1 class="display-6"><strong><u>Méthodes de paiements</u></strong></h1>
-    
+    <a href="{{ path('paiement-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une méthode de paiement</button></a>
         <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
             <thead>
                 <tr align="center">
@@ -37,12 +37,13 @@
         </table><br><br>
 
 <h1 class="display-6"><strong><u>Années</u></strong></h1>
+    <a href="{{ path('annee-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une année</button></a>
         <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
             <thead>
                 <tr align="center">
                     <th data-field="id" data-sortable="true">Id</th>
                     <th data-field="nom" data-sortable="true">Libelle</th>
-                    <th data-field="nb_adherent" data-sortable="true">Nombre d'adhérents</th>
+                    <th data-field="nb_adherent" data-sortable="true">Nombre d'inscrits</th>
                     <th scope="col"></th>
                 </tr>
             </thead>

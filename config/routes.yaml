@@ -39,11 +39,19 @@ reglages:
 
 paiement-consulter:
     path: /paiement/consulter/{paiement_id}
-    controller: App\Controller\AdminController::consulterPaiment
+    controller: App\Controller\AdminController::consulterPaiement
+
+paiement-ajouter:
+    path: /paiement-ajouter
+    controller: App\Controller\AdminController::ajouterPaiement
 
 annee-consulter:
     path: /annee/consulter/{annee_id}
-    controller: App\Controller\AdminController::consulterPaiment
+    controller: App\Controller\AdminController::consulterAnnee
+
+annee-ajouter:
+    path: /annee-ajouter
+    controller: App\Controller\AdminController::ajouterAnnee
 
 adhesion-ajouter:
     path: /adhesion-ajouter
