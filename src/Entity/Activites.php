@@ -70,11 +70,6 @@ class Activites
         return $this->libelle;
     }
 
-    public function __toString()
-    {
-        return $this->libelle;
-    }
-
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
@@ -182,4 +177,10 @@ class Activites
         }
         return $this;
     }
+
+    public function __toString()
+    {
+        return sprintf('%s %s', $this->id, $this->libelle);
+    }
+
 }

@@ -29,7 +29,7 @@ class AdhesionType extends AbstractType
             ->add('montantARegler', NumberType::class)
             ->add('montantRegle', NumberType::class)
             ->add('banque', TextType::class)
-            ->add('paiements', EntityType::class, array('class' => 'App\Entity\Paiement', 'multiple' => 'Libelle'))
+            ->add('paiements', EntityType::class, array('class' => 'App\Entity\Paiement', 'multiple' => true, 'by_reference' => false))
             ->add('annee', EntityType::class, array('class' => 'App\Entity\Annee', 'choice_label' => 'Libelle'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))

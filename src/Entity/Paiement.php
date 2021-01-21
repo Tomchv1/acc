@@ -98,6 +98,6 @@ class Paiement
 
     public function __toString()
     {
-        return $this->libelle;
+        return sprintf('%s %s', $this->id, $this->libelle);
     }
 }
