@@ -41,6 +41,10 @@ activites-modifier:
     path: /activites-modifier/{activites_id}
     controller: App\Controller\ActivitesController::modifierActivites
 
+activites-supprimer:
+    path: /activites-supprimer/{activites_id}
+    controller: App\Controller\ActivitesController::supprimerActivites
+
 horaire-ajouter:
     path: /horaire-ajouter
     controller: App\Controller\ActivitesController::ajouterHoraire
@@ -48,6 +52,10 @@ horaire-ajouter:
 horaire-modifier:
     path: /horaire-modifier/{horaire_id}
     controller: App\Controller\ActivitesController::modifierHoraire
+
+horaire-supprimer:
+    path: /horaire-supprimer/{horaire_id}
+    controller: App\Controller\ActivitesController::supprimerHoraire
 
 reglages:
     path: /reglages
@@ -100,6 +108,10 @@ responsable-ajouter:
 responsable-modifier:
     path: /responsable-modifier/{responsable_id}
     controller: App\Controller\AdherentController::modifierResponsable
+
+responsable-supprimer:
+    path: /responsable-supprimer/{responsable_id}
+    controller: App\Controller\AdherentController::supprimerResponsable
 
 famille-ajouter:
     path: /famille-ajouter

@@ -27,7 +27,7 @@
       <h5 class="card-title">{{horaire.jour}}</h5>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">De {{horaire.dateDebut}} à {{horaire.dateFin}}</li>
-          <li class="list-group-item"><a href="{{ path('horaire-modifier', { 'horaire_id': horaire.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></li>
+          <li class="list-group-item"><a href="{{ path('horaire-modifier', { 'horaire_id': horaire.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a> <a href="{{ path('horaire-supprimer', { 'horaire_id': horaire.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></li>
       </ul>
     </div>
   </div>

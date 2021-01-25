@@ -26,6 +26,8 @@
                     <th data-field="tel" data-sortable="true">Téléphone</th>
                     <th data-field="nb" data-sortable="true">Nombre d'adhérent</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
                 <tbody>
@@ -36,7 +38,9 @@
                         <td>{{responsable.Prenom}}</td>
                         <td>{{responsable.telephone}}</td>
                         <td>{{responsable.adherent.count}}</td>
-                        <td><a href="{{ path('responsable-consulter', { 'responsable_id': responsable.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('responsable-modifier', { 'responsable_id': responsable.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('responsable-consulter', { 'responsable_id': responsable.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <td><a href="{{ path('responsable-modifier', { 'responsable_id': responsable.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('responsable-supprimer', { 'responsable_id': responsable.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>

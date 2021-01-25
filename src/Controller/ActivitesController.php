@@ -91,6 +91,16 @@ class ActivitesController extends AbstractController
         }
     }
 
+    public function supprimerActivites(Request $request, Activites $activites_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($activites_id);
+        $em->flush();
+
+        return $this->redirectToRoute('liste-activites');
+    }
+
     public function ajouterHoraire(Request $request)
     {         
         $horaire = new Horaire();
@@ -148,5 +158,15 @@ class ActivitesController extends AbstractController
                 return $this->render('activites/ajouterHoraire.html.twig', array('form' => $form->createView(),));
            }
         }
+    }
+
+    public function supprimerHoraire(Request $request, Horaire $horaire_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($horaire_id);
+        $em->flush();
+
+        return $this->redirectToRoute('liste-activites');
     }
 }

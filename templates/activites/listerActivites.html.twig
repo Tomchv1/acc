@@ -26,6 +26,8 @@
                     <th data-field="tarifCours" data-sortable="true">Tarif Cours.</th>
                     <th data-field="tarifHorsCours" data-sortable="true">Tarif Hors-Cours.</th>
                     <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
                 <tbody>
@@ -38,7 +40,9 @@
                         <td>{{activites.adherent.count}}</td>
                         <td>{{activites.TarifCours}}€</td>
                         <td>{{activites.TarifHorsCours}}€</td>
-                        <td><a href="{{ path('activites-consulter', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('activites-modifier', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('activites-consulter', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <td><a href="{{ path('activites-modifier', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('activites-supprimer', { 'activites_id': activites.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>

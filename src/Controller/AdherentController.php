@@ -227,6 +227,16 @@ class AdherentController extends AbstractController
         }
     }
 
+    public function supprimerResponsable(Request $request, Responsable $responsable_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($responsable_id);
+        $em->flush();
+
+        return $this->redirectToRoute('liste-responsable');
+    }
+
 
     public function ajouterFamille(Request $request)
     {         
