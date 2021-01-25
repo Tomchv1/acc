@@ -22,6 +22,8 @@
                     <th data-field="nom" data-sortable="true">Libelle</th>
                     <th data-field="prenom" data-sortable="true">Nombre de mensualité</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
                 <tbody>
@@ -30,7 +32,9 @@
                         <th scope="row">{{paiement.id}}</th>
                         <td>{{paiement.libelle}}</td>
                         <td>{{paiement.mensualite}}</td>
-                        <td><a href="{{ path('paiement-consulter', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('paiement-modifier', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('paiement-consulter', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <td><a href="{{ path('paiement-modifier', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('paiement-supprimer', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>
@@ -45,6 +49,8 @@
                     <th data-field="nom" data-sortable="true">Libelle</th>
                     <th data-field="nb_adherent" data-sortable="true">Nombre d'inscrits</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
                 <tbody>
@@ -53,7 +59,9 @@
                         <th scope="row">{{annee.id}}</th>
                         <td>{{annee.libelle}}</td>
                         <th>{{annee.adhesions.count}}</th>
-                        <td><a href="{{ path('annee-consulter', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('annee-modifier', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('annee-consulter', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+                        <td><a href="{{ path('annee-modifier', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                        <td><a href="{{ path('annee-supprimer', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>

@@ -5,6 +5,9 @@ accueil:
     path: /accueil
     controller: App\Controller\AdherentController::index
 
+
+
+
 liste-adherent:
     path: /liste-adherent
     controller: App\Controller\AdherentController::listerAdherent
@@ -24,6 +27,9 @@ adherent-modifier:
 adherent-supprimer:
     path: /adherent-supprimer/{adherent_id}
     controller: App\Controller\AdherentController::supprimerAdherent
+
+
+
 
 liste-activites:
     path: /liste-activites
@@ -45,6 +51,9 @@ activites-supprimer:
     path: /activites-supprimer/{activites_id}
     controller: App\Controller\ActivitesController::supprimerActivites
 
+
+
+
 horaire-ajouter:
     path: /horaire-ajouter
     controller: App\Controller\ActivitesController::ajouterHoraire
@@ -56,6 +65,9 @@ horaire-modifier:
 horaire-supprimer:
     path: /horaire-supprimer/{horaire_id}
     controller: App\Controller\ActivitesController::supprimerHoraire
+
+
+
 
 reglages:
     path: /reglages
@@ -73,6 +85,10 @@ paiement-modifier:
     path: /paiement-modifier/{paiement_id}
     controller: App\Controller\AdminController::modifierPaiement
 
+paiement-supprimer:
+    path: /paiement-supprimer/{paiement_id}
+    controller: App\Controller\AdminController::supprimerPaiement
+
 annee-consulter:
     path: /annee/consulter/{annee_id}
     controller: App\Controller\AdminController::consulterAnnee
@@ -85,6 +101,13 @@ annee-modifier:
     path: /annee-modifier/{annee_id}
     controller: App\Controller\AdminController::modifierAnnee
 
+annee-supprimer:
+    path: /annee-supprimer/{annee_id}
+    controller: App\Controller\AdminController::supprimerAnnee
+
+
+
+
 adhesion-ajouter:
     path: /adhesion-ajouter
     controller: App\Controller\AdherentController::ajouterAdhesion
@@ -92,6 +115,9 @@ adhesion-ajouter:
 adhesion-modifier:
     path: /adhesion-modifier/{adhesion_id}
     controller: App\Controller\AdherentController::modifierAdhesion
+
+
+
 
 responsable-consulter:
     path: /responsable-consulter/{responsable_id}
@@ -112,6 +138,9 @@ responsable-modifier:
 responsable-supprimer:
     path: /responsable-supprimer/{responsable_id}
     controller: App\Controller\AdherentController::supprimerResponsable
+
+
+
 
 famille-ajouter:
     path: /famille-ajouter

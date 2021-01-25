@@ -95,6 +95,16 @@ class AdminController extends AbstractController
            }
         }
     }
+
+    public function supprimerPaiement(Request $request, Paiement $paiement_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($paiement_id);
+        $em->flush();
+
+        return $this->redirectToRoute('reglages');
+    }
  
     public function consulterAnnee($annee_id)
     {
@@ -151,5 +161,15 @@ class AdminController extends AbstractController
                 return $this->render('admin/ajouterAnnee.html.twig', array('form' => $form->createView(),));
            }
         }
+    }
+
+    public function supprimerAnnee(Request $request, Annee $annee_id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($annee_id);
+        $em->flush();
+
+        return $this->redirectToRoute('reglages');
     }
 }

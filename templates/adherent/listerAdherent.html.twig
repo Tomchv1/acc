@@ -13,8 +13,7 @@
 <body>
 <br>
 <h1 class="display-6"><strong><u>Adhérents</u></strong></h1>
-    
-        <a href="{{ path('responsable-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter un adhérent</button></a>
+    <a href="{{ path('responsable-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter un adhérent</button></a>
         
     <div class="container">
         <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
@@ -23,7 +22,7 @@
                     <th data-field="id" data-sortable="true">Id</th>
                     <th data-field="nom" data-sortable="true">Nom</th>
                     <th data-field="prenom" data-sortable="true">Prénom</th>
-                    <th data-field="dateNaiss" data-sortable="true">Date de naissance</th>
+                    <th data-field="dateNaiss" data-sortable="true">Date naissance</th>
                     <th data-field="famille" data-sortable="true">Famille</th>
                     <th data-field="anneeAdhesion" data-sortable="true">Année adhésion</th>
                     <th scope="col"></th>
@@ -49,7 +48,8 @@
                     {% endfor %}
                 </tbody>
         </table>
-    </div><br><br><br>
+
+</div><br><br>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
