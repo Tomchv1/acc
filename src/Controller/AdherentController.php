@@ -101,11 +101,11 @@ class AdherentController extends AbstractController
         }
     }
 
-    public function supprimerAdherent(Request $request, Adherent $adherent)
+    public function supprimerAdherent(Request $request, Adherent $adherent_id)
     {
         $em = $this->getDoctrine()->getManager();
         
-        $em->remove($adherent);
+        $em->remove($adherent_id);
         $em->flush();
 
         return $this->redirectToRoute('liste-adherent');

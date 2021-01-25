@@ -27,6 +27,8 @@
                     <th data-field="famille" data-sortable="true">Famille</th>
                     <th data-field="anneeAdhesion" data-sortable="true">Année adhésion</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
                 <tbody>
@@ -38,7 +40,11 @@
                         <td>{{adherent.DateNaissance}}</td>
                         <td>{{adherent.famille.libelle}}</td>
                         <td>{{adherent.adhesion.annee.libelle}}</td>
-                        <td><a href="{{ path('adherent-consulter', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a><a href="{{ path('adherent-modifier', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a><a href="{{ path('adherent-supprimer', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Supprimer</button></a></td>
+                        <td><a href="{{ path('adherent-consulter', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
+
+                        <td><a href="{{ path('adherent-modifier', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+
+                        <td><a href="{{ path('adherent-supprimer', { 'adherent_id': adherent.id }) }}"><button type="button" class="btn btn-primary">Supprimer</button></a></td>
                     </tr>   
                     {% endfor %}
                 </tbody>
