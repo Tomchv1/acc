@@ -21,6 +21,10 @@ adherent-modifier:
     path: /adherent-modifier/{adherent_id}
     controller: App\Controller\AdherentController::modifierAdherent
 
+adherent-supprimer:
+    path: /adherent-supprimer/{adherent_id}
+    controller: App\Controller\AdherentController::supprimerAdherent
+
 liste-activites:
     path: /liste-activites
     controller: App\Controller\ActivitesController::listerActivites

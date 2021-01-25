@@ -101,6 +101,16 @@ class AdherentController extends AbstractController
         }
     }
 
+    public function supprimerAdherent(Request $request, Adherent $adherent)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $em->remove($adherent);
+        $em->flush();
+
+        return $this->redirectToRoute('liste-adherent');
+    }
+
 
     public function ajouterAdhesion(Request $request)
     {         
