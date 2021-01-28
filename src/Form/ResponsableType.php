@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Adherent;
 use App\Entity\Annee;
-use App\Entity\Paiement;
 use App\Entity\Adhesion;
 use App\Entity\Responsable;
 use Symfony\Component\Form\AbstractType;

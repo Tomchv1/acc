@@ -21,20 +21,35 @@
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Montant à régler</label>
-    {{ form_widget(form.montantARegler, {'attr': {'class': 'form-control'}})}}<br>
-        
-  <label class="form-label">Montant réglé</label>
-    {{ form_widget(form.montantRegle, {'attr': {'class': 'form-control'}})}}<br>
-      
   <label class="form-label">Banque</label>
     {{ form_widget(form.banque, {'attr': {'class': 'form-control'}})}}<br>
-      
-  <label class="form-label">Méthode de paiement</label>
-    {{ form_widget(form.paiements, {'attr': {'class': 'form-control'}})}}<br>
 
   <label class="form-label">Année d'adhesion</label>
     {{ form_widget(form.annee, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant total</label>
+    {{ form_widget(form.montantTotal, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant carte bancaire</label>
+    {{ form_widget(form.montantCb, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant prélévement SEPA</label>
+    {{ form_widget(form.montantSepa, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant ANCV</label>
+    {{ form_widget(form.montantAncv, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant carte atout Normandie</label>
+    {{ form_widget(form.montantCan, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant chèque</label>
+    {{ form_widget(form.montantCheque, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Montant autre</label>
+    {{ form_widget(form.montantAutre, {'attr': {'class': 'form-control'}})}}<br>
+
+  <label class="form-label">Commentaire</label>
+    {{ form_widget(form.commentaire, {'attr': {'class': 'form-control'}})}}<br>
 
 <br>
 <div class="col-12">

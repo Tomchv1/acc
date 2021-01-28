@@ -20,24 +20,9 @@ class Adhesion
     private $id;
 
     /**
-     * @ORM\Column(type="float")
-     */
-    private $montant_a_regler;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $montant_regle;
-
-    /**
      * @ORM\Column(type="string", length=60, nullable=true)
      */
     private $banque;
-
-    /**
-     * @ORM\ManyToMany(targetEntity=Paiement::class, mappedBy="adhesion")
-     */
-    private $paiements;
 
     /**
      * @ORM\OneToOne(targetEntity=Adherent::class, mappedBy="adhesion", cascade={"persist", "remove"})
@@ -49,39 +34,46 @@ class Adhesion
      */
     private $annee;
 
-    public function __construct()
-    {
-        $this->paiements = new ArrayCollection();
-    }
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_total;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_cb;
 
-    public function getMontantARegler(): ?float
-    {
-        return $this->montant_a_regler;
-    }
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_sepa;
 
-    public function setMontantARegler(float $montant_a_regler): self
-    {
-        $this->montant_a_regler = $montant_a_regler;
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_ancv;
 
-        return $this;
-    }
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_can;
 
-    public function getMontantRegle(): ?float
-    {
-        return $this->montant_regle;
-    }
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_cheque;
 
-    public function setMontantRegle(float $montant_regle): self
-    {
-        $this->montant_regle = $montant_regle;
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $montant_autre;
 
-        return $this;
-    }
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $commentaire;
+
 
     public function getBanque(): ?string
     {
@@ -91,33 +83,6 @@ class Adhesion
     public function setBanque(?string $banque): self
     {
         $this->banque = $banque;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Paiement[]
-     */
-    public function getPaiements(): Collection
-    {
-        return $this->paiements;
-    }
-
-    public function addPaiement(Paiement $paiement): self
-    {
-        if (!$this->paiements->contains($paiement)) {
-            $this->paiements[] = $paiement;
-            $paiement->addAdhesion($this);
-        }
-
-        return $this;
-    }
-
-    public function removePaiement(Paiement $paiement): self
-    {
-        if ($this->paiements->removeElement($paiement)) {
-            $paiement->removeAdhesion($this);
-        }
 
         return $this;
     }
@@ -152,6 +117,102 @@ class Adhesion
     public function setAnnee(?Annee $annee): self
     {
         $this->annee = $annee;
+
+        return $this;
+    }
+
+    public function getMontantTotal(): ?float
+    {
+        return $this->montant_total;
+    }
+
+    public function setMontantTotal(?float $montant_total): self
+    {
+        $this->montant_total = $montant_total;
+
+        return $this;
+    }
+
+    public function getMontantCb(): ?float
+    {
+        return $this->montant_cb;
+    }
+
+    public function setMontantCb(?float $montant_cb): self
+    {
+        $this->montant_cb = $montant_cb;
+
+        return $this;
+    }
+
+    public function getMontantSepa(): ?float
+    {
+        return $this->montant_sepa;
+    }
+
+    public function setMontantSepa(?float $montant_sepa): self
+    {
+        $this->montant_sepa = $montant_sepa;
+
+        return $this;
+    }
+
+    public function getMontantAncv(): ?float
+    {
+        return $this->montant_ancv;
+    }
+
+    public function setMontantAncv(?float $montant_ancv): self
+    {
+        $this->montant_ancv = $montant_ancv;
+
+        return $this;
+    }
+
+    public function getMontantCan(): ?float
+    {
+        return $this->montant_can;
+    }
+
+    public function setMontantCan(?float $montant_can): self
+    {
+        $this->montant_can = $montant_can;
+
+        return $this;
+    }
+
+    public function getMontantCheque(): ?float
+    {
+        return $this->montant_cheque;
+    }
+
+    public function setMontantCheque(?float $montant_cheque): self
+    {
+        $this->montant_cheque = $montant_cheque;
+
+        return $this;
+    }
+
+    public function getMontantAutre(): ?float
+    {
+        return $this->montant_autre;
+    }
+
+    public function setMontantAutre(?float $montant_autre): self
+    {
+        $this->montant_autre = $montant_autre;
+
+        return $this;
+    }
+
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
+
+    public function setCommentaire(?string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
 
         return $this;
     }

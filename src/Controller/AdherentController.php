@@ -12,7 +12,6 @@ use App\Entity\Responsable;
 use App\Entity\Activites;
 use App\Entity\Famille;
 use App\Entity\Adhesion;
-use App\Entity\Paiement;
 use App\Entity\Annee;
 use App\Form\AdherentType;
 use App\Form\AdherentModifierType;

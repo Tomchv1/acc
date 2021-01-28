@@ -54,11 +54,6 @@ class Adherent
      */
     private $adhesion;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Inscription::class, inversedBy="adherent", cascade={"persist", "remove"})
-     */
-    private $inscription;
-
     public function __construct()
     {
         $this->responsables = new ArrayCollection();
@@ -188,18 +183,6 @@ class Adherent
     public function setAdhesion(?Adhesion $adhesion): self
     {
         $this->adhesion = $adhesion;
-
-        return $this;
-    }
-
-    public function getInscription(): ?Inscription
-    {
-        return $this->inscription;
-    }
-
-    public function setInscription(?Inscription $inscription): self
-    {
-        $this->inscription = $inscription;
 
         return $this;
     }

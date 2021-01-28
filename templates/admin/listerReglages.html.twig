@@ -15,32 +15,6 @@
 <br>
 
 <a href="../../acc-admin/vues/index.php">Accéder à Admin'ACC</a>
-<h1 class="display-6"><strong><u>Méthodes de paiements</u></strong></h1>
-    <a href="{{ path('paiement-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une méthode de paiement</button></a>
-        <table id="table" data-search="true" data-sortable="true" data-sort-class="table-active" data-toggle="table">
-            <thead>
-                <tr align="center">
-                    <th data-field="id" data-sortable="true">Id</th>
-                    <th data-field="nom" data-sortable="true">Libelle</th>
-                    <th data-field="prenom" data-sortable="true">Nombre de mensualité</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-                <tbody>
-                    {% for paiement in pPaiements %}
-                    <tr align="center">
-                        <th scope="row">{{paiement.id}}</th>
-                        <td>{{paiement.libelle}}</td>
-                        <td>{{paiement.mensualite}}</td>
-                        <td><a href="{{ path('paiement-consulter', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
-                        <td><a href="{{ path('paiement-modifier', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
-                        <td><a href="{{ path('paiement-supprimer', { 'paiement_id': paiement.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
-                    </tr>   
-                    {% endfor %}
-                </tbody>
-        </table><br><br>
 
 <h1 class="display-6"><strong><u>Années</u></strong></h1>
     <a href="{{ path('annee-ajouter') }}"><button type="button" class="btn btn-primary">Ajouter une année</button></a>

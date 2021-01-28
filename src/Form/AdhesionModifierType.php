@@ -4,7 +4,6 @@ namespace App\Form;
 
 use App\Entity\Adherent;
 use App\Entity\Annee;
-use App\Entity\Paiement;
 use App\Entity\Adhesion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,10 +25,15 @@ class AdhesionModifierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('montantARegler', NumberType::class)
-            ->add('montantRegle', NumberType::class)
             ->add('banque', TextType::class)
-            ->add('paiements', EntityType::class, array('class' => 'App\Entity\Paiement', 'multiple' => true, 'by_reference' => false))
+            ->add('montantTotal', NumberType::class)
+            ->add('montantCb', NumberType::class)
+            ->add('montantSepa', NumberType::class)
+            ->add('montantAncv', NumberType::class)
+            ->add('montantCan', NumberType::class)
+            ->add('montantCheque', NumberType::class)
+            ->add('montantAutre', NumberType::class)
+            ->add('commentaire', TextType::class)
             ->add('annee', EntityType::class, array('class' => 'App\Entity\Annee', 'choice_label' => 'Libelle'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Modifier'))

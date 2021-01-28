@@ -135,7 +135,7 @@ class ActivitesController extends AbstractController
         ->find($horaire_id);
  
         if (!$horaire) {
-            throw $this->createNotFoundException('Aucune horaire trouvée avec le numéro '.$paiement_id);
+            throw $this->createNotFoundException('Aucune horaire trouvée avec le numéro '.$horaire_id);
         }
         else
         {
