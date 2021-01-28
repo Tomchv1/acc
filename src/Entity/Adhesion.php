@@ -75,6 +75,11 @@ class Adhesion
     private $commentaire;
 
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    
     public function getBanque(): ?string
     {
         return $this->banque;

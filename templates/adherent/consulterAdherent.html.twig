@@ -30,9 +30,9 @@
     <div class="card-body">
       <h5 class="card-title">Informations côtisations</h5>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Montant à régler : {{pAdherent.adhesion.montantARegler}}€</li>
-          <li class="list-group-item">Montant réglé : {{pAdherent.adhesion.montantRegle}}€</li>
           <li class="list-group-item">Banque : {{pAdherent.adhesion.banque}}</li>
+          <li class="list-group-item">Montant total : {{pAdherent.adhesion.montantTotal}}€</li>
+          <li class="list-group-item">Commentaire : {{pAdherent.adhesion.commentaire}}</li>
           <li class="list-group-item"><a href="{{ path('adhesion-modifier', { 'adhesion_id': pAdherent.adhesion.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></li>
         </ul>
     </div>

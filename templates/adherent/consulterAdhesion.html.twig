@@ -16,26 +16,23 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Identifiant : {{pAdhesion.id}}</h5>
+      <p>Année d'adhesion : {{pAdhesion.annee.libelle}}</p>
       <div class="alert alert-warning" role="alert">
         Merci de garder/noter en mémoire l'identifiant de l'adhésion pour la création de l'adhérent (Id : <strong>{{pAdhesion.id}}</strong>)
-      </div>
+      </div><br>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Montant à régler : {{pAdhesion.montantARegler}}€</li>
-          <li class="list-group-item">Montant réglé : {{pAdhesion.montantRegle}}€</li>
+          <li class="list-group-item"><strong>INFORMATIONS BANCAIRES</strong></li>
           <li class="list-group-item">Banque : {{pAdhesion.banque}}</li>
-          <li class="list-group-item">Année d'adhesion : {{pAdhesion.annee.libelle}}</li>
+          <li class="list-group-item">Montant total : {{pAdhesion.montantTotal}}€</li><br>
+          <li class="list-group-item"><strong>METHODES DE PAIEMENTS</strong></li>
+          <li class="list-group-item">Montant carte bancaire : {{pAdhesion.montantCb}}€</li>
+          <li class="list-group-item">Montant prélévement SEPA : {{pAdhesion.montantSepa}}€</li>
+          <li class="list-group-item">Montant ANCV : {{pAdhesion.montantAncv}}€</li>
+          <li class="list-group-item">Montant Carte Atout Normandie : {{pAdhesion.montantCan}}€</li>
+          <li class="list-group-item">Montant chéque : {{pAdhesion.montantCheque}}€</li>
+          <li class="list-group-item">Montant autre : {{pAdhesion.montantAutre}}€</li>
+          <li class="list-group-item">Commentaire : {{pAdhesion.commentaire}}€</li>  
       </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Méthode de paiement</h5>
-        <ul class="list-group list-group-flush">
-          {% for paiement in pAdhesion.paiements %}
-            <li class="list-group-item">{{paiement.libelle}} - {{paiement.mensualite}} fois</li>
-          {% endfor %}
-        </ul>
     </div>
   </div>
 </div>

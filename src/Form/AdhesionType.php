@@ -11,6 +11,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -33,7 +34,7 @@ class AdhesionType extends AbstractType
             ->add('montantCan', NumberType::class)
             ->add('montantCheque', NumberType::class)
             ->add('montantAutre', NumberType::class)
-            ->add('commentaire', TextType::class)
+            ->add('commentaire', TextareaType::class)
             ->add('annee', EntityType::class, array('class' => 'App\Entity\Annee', 'choice_label' => 'Libelle'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))
