@@ -29,9 +29,9 @@ class ResponsableModifierType extends AbstractType
                     'label' => 'Genre :',
                     'required' => false,
                     'choices' => array(
-                    'Femme' => 'Femme',
-                    'Homme' => 'Homme',
-                    'Autres' => 'Autres'),
+                    'Féminin' => 'Féminin',
+                    'Masculin' => 'Masculin',
+                    'Autre' => 'Autre'),
                     'placeholder' => 'Genre',])
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)

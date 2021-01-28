@@ -20,6 +20,11 @@ class Adherent
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $genre;
+
+    /**
      * @ORM\Column(type="string", length=50)
      */
     private $nom;
@@ -63,6 +68,18 @@ class Adherent
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getGenre(): ?string
+    {
+        return $this->genre;
+    }
+
+    public function setGenre(?string $genre): self
+    {
+        $this->genre = $genre;
+
+        return $this;
     }
 
     public function getNom(): ?string

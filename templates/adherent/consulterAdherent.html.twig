@@ -18,6 +18,7 @@
     <div class="card-body">
       <h5 class="card-title">{{pAdherent.nom}} {{pAdherent.prenom}}</h5>
         <ul class="list-group list-group-flush">
+          <li class="list-group-item">Genre : {{pAdherent.genre}}</li>
           <li class="list-group-item">Date de naissance : {{pAdherent.dateNaissance}}</li>
           <li class="list-group-item">Année d'adhesion : {{pAdherent.adhesion.annee.libelle}}</li>
           <li class="list-group-item"><a href="{{ path('adherent-modifier', { 'adherent_id': pAdherent.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></li>
@@ -61,6 +62,7 @@
     <div class="card-body">
       <h5 class="card-title">{{responsable.nom}} {{responsable.prenom}}</h5>
         <ul class="list-group list-group-flush">
+          <li class="list-group-item">Genre : {{responsable.genre}}</li>
           <li class="list-group-item">Téléphone : {{responsable.telephone}}</li>
           <li class="list-group-item">Portable : {{responsable.portable}}</li>
           <li class="list-group-item">E-Mail : {{responsable.mail}}</li>

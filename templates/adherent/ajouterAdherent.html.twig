@@ -16,6 +16,9 @@
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
+  <label class="form-label">Genre</label>
+    {{ form_widget(form.genre, {'attr': {'class': 'form-control'}})}}<br>
+
   <label class="form-label">Nom</label>
     {{ form_widget(form.nom, {'attr': {'class': 'form-control'}})}}<br>
         
