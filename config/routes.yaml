@@ -73,22 +73,6 @@ reglages:
     path: /reglages
     controller: App\Controller\AdminController::listerReglages
 
-paiement-consulter:
-    path: /paiement/consulter/{paiement_id}
-    controller: App\Controller\AdminController::consulterPaiement
-
-paiement-ajouter:
-    path: /paiement-ajouter
-    controller: App\Controller\AdminController::ajouterPaiement
-
-paiement-modifier:
-    path: /paiement-modifier/{paiement_id}
-    controller: App\Controller\AdminController::modifierPaiement
-
-paiement-supprimer:
-    path: /paiement-supprimer/{paiement_id}
-    controller: App\Controller\AdminController::supprimerPaiement
-
 annee-consulter:
     path: /annee/consulter/{annee_id}
     controller: App\Controller\AdminController::consulterAnnee
