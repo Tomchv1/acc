@@ -16,20 +16,20 @@
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Libellé</label>
-    {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Libellé<label style="color:red;">*</label></label>
+    {{ form_widget(form.libelle, {'attr': {'class': 'form-control', 'placeholder' : 'Piano'}})}}<br>
         
   <label class="form-label">Âge minimum</label>
-    {{ form_widget(form.ageMin, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.ageMin, {'attr': {'class': 'form-control', 'placeholder' : '5'}})}}<br>
       
   <label class="form-label">Âge maximum</label>
-    {{ form_widget(form.ageMax, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.ageMax, {'attr': {'class': 'form-control', 'placeholder' : '99'}})}}<br>
       
   <label class="form-label">Tarif Courseullais</label>
-    {{ form_widget(form.tarifCours, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.tarifCours, {'attr': {'class': 'form-control', 'placeholder' : '200'}})}}<br>
 
   <label class="form-label">Tarif Hors-commune</label>
-    {{ form_widget(form.tarifHorsCours, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.tarifHorsCours, {'attr': {'class': 'form-control', 'placeholder' : '220'}})}}<br>
 
 <br>
 <div class="col-12">
@@ -37,6 +37,7 @@
 </div>
 
 {{ form_end(form) }}
+<label style="color:red;">* champ obligatoire</label>
 
 
   </div><br><br><br>

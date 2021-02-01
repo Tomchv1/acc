@@ -19,32 +19,32 @@
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Genre</label>
+  <label class="form-label">Genre<label style="color:red;">*</label></label>
     {{ form_widget(form.genre, {'attr': {'class': 'form-control'}})}}<br>
         
-  <label class="form-label">Nom</label>
-    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Nom<label style="color:red;">*</label></label>
+    {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : 'DUPONT'}})}}<br>
       
-  <label class="form-label">Prénom</label>
-    {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Prénom<label style="color:red;">*</label></label>
+    {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : 'Denis'}})}}<br>
       
   <label class="form-label">Téléphone</label>
-    {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder' : '0234567890'}})}}<br>
 
   <label class="form-label">Portable</label>
-    {{ form_widget(form.portable, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.portable, {'attr': {'class': 'form-control', 'placeholder' : '0698765432'}})}}<br>
 
   <label class="form-label">E-mail</label>
-    {{ form_widget(form.mail, {'attr': {'class': 'form-control'}})}}<br>
+    {{ form_widget(form.mail, {'attr': {'class': 'form-control', 'placeholder' : 'dupont.denis@mail.fr'}})}}<br>
 
-  <label class="form-label">Adresse</label>
-    {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Adresse<label style="color:red;">*</label></label>
+    {{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder' : '12 rue de la paix'}})}}<br>
 
-  <label class="form-label">Ville</label>
-    {{ form_widget(form.ville, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Ville<label style="color:red;">*</label></label>
+    {{ form_widget(form.ville, {'attr': {'class': 'form-control', 'placeholder' : 'Courseulles sur mer'}})}}<br>
 
-  <label class="form-label">Code postal</label>
-    {{ form_widget(form.cp, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Code postal<label style="color:red;">*</label></label>
+    {{ form_widget(form.cp, {'attr': {'class': 'form-control', 'placeholder' : '14470'}})}}<br>
 
 <br>
 <div class="col-12">
@@ -52,7 +52,7 @@
 </div>
 
 {{ form_end(form) }}
-
+<label style="color:red;">* champ obligatoire</label>
 
   </div><br><br><br>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>

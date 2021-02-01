@@ -16,28 +16,28 @@
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Genre</label>
+  <label class="form-label">Genre<label style="color:red;">*</label></label>
     {{ form_widget(form.genre, {'attr': {'class': 'form-control'}})}}<br>
 
-  <label class="form-label">Nom</label>
-    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Nom<label style="color:red;">*</label></label>
+    {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder' : 'DUPONT'}})}}<br>
         
-  <label class="form-label">Prénom</label>
-    {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Prénom<label style="color:red;">*</label></label>
+    {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder' : 'Denis'}})}}<br>
       
-  <label class="form-label">Date de naissance</label>
-    {{ form_widget(form.date_naissance, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Date de naissance<label style="color:red;">*</label></label>
+    {{ form_widget(form.date_naissance, {'attr': {'class': 'form-control', 'placeholder' : '01/01/1970'}})}}<br>
       
-  <label class="form-label">Famille</label>
+  <label class="form-label">Famille<label style="color:red;">*</label></label>
     {{ form_widget(form.famille, {'attr': {'class': 'form-control'}})}}<br>
 
-  <label class="form-label">Responsables</label>
+  <label class="form-label">Responsables<label style="color:red;">*</label></label>
     {{ form_widget(form.responsables, {'attr': {'class': 'form-control'}})}}<br>
       
-  <label class="form-label">Activités</label>
+  <label class="form-label">Activités<label style="color:red;">*</label></label>
     {{ form_widget(form.activites, {'attr': {'class': 'form-control'}})}}<br>
     
-  <label class="form-label">Adhesion</label>
+  <label class="form-label">Adhesion<label style="color:red;">*</label></label>
     {{ form_widget(form.adhesion, {'attr': {'class': 'form-control'}})}}<br>
 
 
@@ -47,6 +47,7 @@
 </div></div>
 
 {{ form_end(form) }}
+<label style="color:red;">* champ obligatoire</label>
 
 
   </div><br><br><br>

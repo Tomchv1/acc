@@ -19,8 +19,8 @@
 {{ form_start(form) }}
 
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Libellé de la famille</label>
-    {{ form_widget(form.libelle, {'attr': {'class': 'form-control'}})}}<br>
+  <label class="form-label">Libellé de la famille<label style="color:red;">*</label></label>
+    {{ form_widget(form.libelle, {'attr': {'class': 'form-control', 'placeholder' : 'DUPONT'}})}}<br>
         
 <br>
 <div class="col-12">
@@ -28,7 +28,7 @@
 </div></div>
 
 {{ form_end(form) }}
-
+<label style="color:red;">* champ obligatoire</label>
 
   </div><br><br><br>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
