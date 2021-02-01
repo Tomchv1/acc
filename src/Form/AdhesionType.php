@@ -20,21 +20,24 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 class AdhesionType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('banque', TextType::class)
-            ->add('montantTotal', NumberType::class)
-            ->add('montantCb', NumberType::class)
-            ->add('montantSepa', NumberType::class)
-            ->add('montantAncv', NumberType::class)
-            ->add('montantCan', NumberType::class)
-            ->add('montantCheque', NumberType::class)
-            ->add('montantAutre', NumberType::class)
-            ->add('commentaire', TextareaType::class)
+            ->add('banque', TextType::class, ['required' => false, 'constraints' => [new Length(['min' => 0, 'max' => 60])]])
+            ->add('montantTotal', NumberType::class, ['required' => true, 'constraints' => [new Length(['min' => 1])]])
+            ->add('montantCb', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('montantSepa', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('montantAncv', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('montantCan', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('montantCheque', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('montantAutre', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('commentaire', TextareaType::class, ['required' => false, 'constraints' => [new Length(['min' => 0, 'max' => 500])]])
             ->add('annee', EntityType::class, array('class' => 'App\Entity\Annee', 'choice_label' => 'Libelle'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))

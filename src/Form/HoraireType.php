@@ -17,15 +17,18 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 class HoraireType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('jour', TextType::class)
-            ->add('dateDebut', TextType::class)
-            ->add('dateFin', TextType::class)
+            ->add('jour', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 15])]])
+            ->add('dateDebut', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 4, 'max' => 5])]])
+            ->add('dateFin', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 4, 'max' => 5])]])
             ->add('activites', EntityType::class, array('class' => 'App\Entity\Activites', 'choice_label' => 'Libelle'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))

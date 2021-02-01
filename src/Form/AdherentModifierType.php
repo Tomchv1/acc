@@ -20,6 +20,9 @@ use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 class AdherentModifierType extends AbstractType
 {
@@ -27,20 +30,20 @@ class AdherentModifierType extends AbstractType
     {
         $builder
             ->add('genre', ChoiceType::class,  [
-                        'label' => 'Genre :',
-                        'required' => false,
-                        'choices' => array(
-                        'Féminin' => 'Féminin',
-                        'Masculin' => 'Masculin',
-                        'Autre' => 'Autre'),
-                        'placeholder' => 'Genre',])
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('date_naissance', TextType::class)
+                    'label' => 'Genre :',
+                    'required' => false,
+                    'choices' => array(
+                    'Féminin' => 'Féminin',
+                    'Masculin' => 'Masculin',
+                    'Autre' => 'Autre'),
+                    'placeholder' => 'Genre',])
+            ->add('nom', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 50])]])
+            ->add('prenom', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 50])]])
+            ->add('date_naissance', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 10, 'max' => 10])]])
             ->add('famille', EntityType::class, array('class' => 'App\Entity\Famille', 'choice_label' => 'Libelle'))
             ->add('responsables', EntityType::class, array('class' => 'App\Entity\Responsable', 'multiple' => true, 'by_reference' => false))
             ->add('activites', EntityType::class, array('class' => 'App\Entity\Activites', 'multiple' => true, 'by_reference' => false))
-            ->add('adhesion', EntityType::class, array('class' => 'App\Entity\Adhesion', 'choice_label' => 'Id', 'disabled'=> true))
+            ->add('adhesion', EntityType::class, array('class' => 'App\Entity\Adhesion', 'choice_label' => 'Id'))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Modifier'))
         ;

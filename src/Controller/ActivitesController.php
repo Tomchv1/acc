@@ -169,4 +169,22 @@ class ActivitesController extends AbstractController
 
         return $this->redirectToRoute('liste-activites');
     }
+
+
+    public function activites(ValidatorInterface $validator)
+    {
+        $activites = new Activites();
+
+        // ... do something to the $activites object
+
+        $errors = $validator->validate($activites);
+
+        if (count($errors) > 0) {
+            $errorsString = (string) $errors;
+
+            return new Response($errorsString);
+        }
+
+        return new Response('The activites is valid! Yes!');
+    }
 }

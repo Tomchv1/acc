@@ -16,17 +16,20 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Constraints\Length;
 
 class ActivitesType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('libelle', TextType::class)
-            ->add('ageMin', NumberType::class)
-            ->add('ageMax', NumberType::class)
-            ->add('tarifCours', NumberType::class)
-            ->add('tarifHorsCours', NumberType::class)
+            ->add('libelle', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 100])]])
+            ->add('ageMin', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0, 'max' => 3])]])
+            ->add('ageMax', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0, 'max' => 3])]])
+            ->add('tarifCours', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('tarifHorsCours', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Ajouter'))
         ;

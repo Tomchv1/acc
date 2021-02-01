@@ -19,6 +19,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\Validator\Constraints\Email;
+
 
 class ResponsableModifierType extends AbstractType
 {
@@ -33,14 +38,14 @@ class ResponsableModifierType extends AbstractType
                     'Masculin' => 'Masculin',
                     'Autre' => 'Autre'),
                     'placeholder' => 'Genre',])
-            ->add('nom', TextType::class)
-            ->add('prenom', TextType::class)
-            ->add('telephone', TextType::class)
-            ->add('portable', TextType::class)
-            ->add('mail', TextType::class)
-            ->add('adresse', TextType::class)
-            ->add('ville', TextType::class)
-            ->add('cp', TextType::class)
+            ->add('nom', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 50])]])
+            ->add('prenom', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 50])]])
+            ->add('telephone', TextType::class, ['required' => false, 'constraints' => [new Length(['min' => 10, 'max' => 10])]])
+            ->add('portable', TextType::class, ['required' => false, 'constraints' => [new Length(['min' => 10, 'max' => 10])]])
+            ->add('mail', TextType::class, ['required' => false, 'constraints' => [new Email]])
+            ->add('adresse', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 150])]])
+            ->add('ville', TextType::class, ['required' => true, 'constraints' => [new Length(['min' => 1, 'max' => 100])]])
+            ->add('cp', TextType::class, ['required' => false, 'constraints' => [new Length(['min' => 5, 'max' => 5])]])
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Modifier'))
         ;
