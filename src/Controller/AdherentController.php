@@ -23,15 +23,17 @@ use App\Form\FamilleType;
 
 class AdherentController extends AbstractController
 {
-
-    /**
-     * @Route("/adherent", name="adherent")
-     */
     public function index(): Response
     {
+        exec("php /my/project/app/console cache:clear --env=prod");
+
         return $this->render('adherent/index.html.twig', [
             'controller_name' => 'AdherentController',]);
     }
+
+     
+
+
 
     public function listerAdherent()
     {
