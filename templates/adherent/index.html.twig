@@ -12,6 +12,9 @@
 <div class="container">
 <h3 align="left">Bienvenue !</h3>
 <p align="left">Vous êtes désormais connecté sur l'application Gest'ACC !</p>
+<hr>
+<p align="left">Besoin d'aide pour en savoir plus sur l'application ?</p>
+<p align="left">C'est juste ici. Ou alors consulter le guide d'utilisation fournis préalablement.</p>
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -19,7 +22,7 @@
         L'objectif de l'application
       </button>
     </h2>
-    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div class="accordion-body" align="left">
         <strong>Gérer ses adhérents.</strong> Vous pourrez suivre l'évolution de votre association sur chaque année, grâce à l'application <a href="../../acc-admin/vues/index.php">Admin'ACC</a>. La génération des fiches d'inscription est automatisée, à condition que les informations renseignées dans la base de données ne soient pas erronées.<br><br>
 
@@ -35,7 +38,7 @@
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body" align="left">
-        <strong>Contactez le développeur !</strong> L'application n'est pas sans faille, comme la majorité de celles-ci. Des conflits peuvent survenir à la suite d'une manipulation de données, pour régler le problème, contactez le développeur en charge de l'application, et tentera de résoudre le problème.<br><br>
+        <strong>Contactez le développeur !</strong> L'application n'est pas sans faille, le risque zéro n'existe pas. Des conflits peuvent survenir à la suite d'une manipulation de données, pour régler le problème, contactez le développeur en charge de l'application, et tentera de résoudre le problème.<br><br>
 
         Il est également possible que l'accès à l'application soit temporairement inaccessible, du fait que celle-ci est hébergée sur un serveur externe possédé par <a href="https://www.planethoster.com/fr/">PlanetHoster</a> en France, vous pourrez prendre connaissance de l'état du serveur en temps réel grâce à ce <a href="https://my.planethoster.com/service-status?locale=fr&currency=EUR">lien</a>. Vous n'avez qu'à renseigner l'URL de votre application.
       </div>
@@ -44,12 +47,14 @@
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        Gestion de sauvegardes
+        Gestion de sauvegarde
       </button>
     </h2>
     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
       <div class="accordion-body" align="left">
-        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <strong>Vaut mieux prévenir que guérir.</strong> Il est important d'effectuer des sauvegardes des données. En cas de dysfonctionnement, ou perte de données, il est important d'avoir une sauvegarde récente afin de restaurer la quasi-totalité de vos données perdues. Pour effectuer une sauvegarde des données de votre base de données, cliquez sur ce <a href="https://world-358.fr.planethoster.net:2083/cpsess1169518483/3rdparty/phpMyAdmin/db_sql.php">lien</a>. Identifiez-vous grâce aux identifiants communiqués préalablement.<br><br>
+
+        Une fois sur l'interface graphique de phpMyAdmin, cliquez sur l'onglet exporter, puis sélectionnez le format d'export de vos données. Il est fortement <strong>recommandé</strong> d'effectuer un export au format <strong>SQL</strong> pour sauvegarder vos données, et au format <strong>CSV</strong> pour un traitement des données brut.
       </div>
     </div>
   </div>
