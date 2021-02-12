@@ -36,7 +36,7 @@ class AdhesionType extends AbstractType
             ->add('montantAncv', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
             ->add('montantCan', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
             ->add('montantCheque', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
-            ->add('montantAutre', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
+            ->add('montantEspece', NumberType::class, ['required' => false, 'constraints' => [new Length(['min' => 0])]])
             ->add('commentaire', TextareaType::class, ['required' => false, 'constraints' => [new Length(['min' => 0, 'max' => 500])]])
             ->add('annee', EntityType::class, array('class' => 'App\Entity\Annee', 'choice_label' => 'Libelle'))
 

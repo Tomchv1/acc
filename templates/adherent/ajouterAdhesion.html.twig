@@ -29,27 +29,27 @@
     {{ form_widget(form.annee, {'attr': {'class': 'form-control'}})}}<br>
 </div><br><br>
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Montant total<label style="color:red;">*</label></label>
+  <label class="form-label">Montant total <u>à régler</u> <label style="color:red;">*</label></label>
     {{ form_widget(form.montantTotal, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 </div><br><br>
 <div class="alert alert-primary" role="alert">
-  <label class="form-label">Montant carte bancaire</label>
+  <label class="form-label">Montant <u>réglé</u> par carte bancaire</label>
     {{ form_widget(form.montantCb, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 
-  <label class="form-label">Montant prélévement SEPA</label>
+  <label class="form-label">Montant <u>réglé</u> par prélévement SEPA</label>
     {{ form_widget(form.montantSepa, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 
-  <label class="form-label">Montant ANCV</label>
+  <label class="form-label">Montant <u>réglé</u> par ANCV</label>
     {{ form_widget(form.montantAncv, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 
-  <label class="form-label">Montant carte atout Normandie</label>
+  <label class="form-label">Montant <u>réglé</u> par carte atout Normandie</label>
     {{ form_widget(form.montantCan, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 
-  <label class="form-label">Montant chèque</label>
+  <label class="form-label">Montant <u>réglé</u> par chèque</label>
     {{ form_widget(form.montantCheque, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 
-  <label class="form-label">Montant autre</label>
-    {{ form_widget(form.montantAutre, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
+  <label class="form-label">Montant <u>réglé</u> par espèce</label>
+    {{ form_widget(form.montantEspece, {'attr': {'class': 'form-control', 'placeholder' : '0.00'}})}}<br>
 
   <label class="form-label">Commentaire</label>
     {{ form_widget(form.commentaire, {'attr': {'class': 'form-control', 'placeholder' : 'Numéro de chèque : 123456789'}})}}<br>

@@ -67,7 +67,7 @@ class Adhesion
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $montant_autre;
+    private $montant_espece;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -198,14 +198,14 @@ class Adhesion
         return $this;
     }
 
-    public function getMontantAutre(): ?float
+    public function getMontantEspece(): ?float
     {
-        return $this->montant_autre;
+        return $this->montant_espece;
     }
 
-    public function setMontantAutre(?float $montant_autre): self
+    public function setMontantEspece(?float $montant_espece): self
     {
-        $this->montant_autre = $montant_autre;
+        $this->montant_espece = $montant_espece;
 
         return $this;
     }
