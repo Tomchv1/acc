@@ -23,6 +23,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Component\OptionsResolver\Exception\UndefinedOptionsException;
 
 class AdherentModifierType extends AbstractType
 {
@@ -43,7 +44,7 @@ class AdherentModifierType extends AbstractType
             ->add('famille', EntityType::class, array('class' => 'App\Entity\Famille', 'choice_label' => 'Libelle'))
             ->add('responsables', EntityType::class, array('class' => 'App\Entity\Responsable', 'multiple' => true, 'by_reference' => false))
             ->add('activites', EntityType::class, array('class' => 'App\Entity\Activites', 'multiple' => true, 'by_reference' => false))
-            ->add('adhesion', EntityType::class, array('class' => 'App\Entity\Adhesion', 'choice_label' => 'Id'))
+            ->add('adhesion', EntityType::class, array('class' => 'App\Entity\Adhesion', 'choice_label' => 'Id', 'disabled' => true))
 
             ->add('enregistrer', SubmitType::class, array('label' => 'Modifier'))
         ;

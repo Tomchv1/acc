@@ -26,7 +26,6 @@
                     <th data-field="nb_adherent" data-sortable="true">Nombre d'inscrits</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
                 <tbody>
@@ -35,7 +34,6 @@
                         <th scope="row">{{annee.id}}</th>
                         <td>{{annee.libelle}}</td>
                         <th>{{annee.adhesions.count}}</th>
-                        <td><a href="{{ path('annee-consulter', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Consulter</button></a></td>
                         <td><a href="{{ path('annee-modifier', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
                         <td><a href="{{ path('annee-supprimer', { 'annee_id': annee.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
                     </tr>   
